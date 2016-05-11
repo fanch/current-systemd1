@@ -1,0 +1,72 @@
+# Description: Démon pour la gestion du matériel dans l'espace utilisateur
+# URL: http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
+# Maintainer: cgit.freedesktop.org/systemd/
+# Packager: thierryn1 at hispeed dot ch
+# Depends on: glib  gperf  gobject-introspection
+# Run on: glib  gperf
+
+name=systemd
+version=229
+release=1
+source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz
+http://www.linuxfromscratch.org/patches/lfs/$name/$name-$version-compat-1.patch)
+
+build()
+{
+cd $name-$version
+sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
+patch -Np1 -i ../$name-$version-compat-1.patch
+sed -e 's@test/udev-test.pl @@'  \
+    -e 's@test-copy$(EXEEXT) @@' \
+    -i Makefile.in
+autoreconf -fi    
+cat > config.cache << "EOF"
+KILL=/bin/kill
+MOUNT_PATH=/bin/mount
+UMOUNT_PATH=/bin/umount
+HAVE_BLKID=1
+BLKID_LIBS="-lblkid"
+BLKID_CFLAGS="-I/tools/include/blkid"
+HAVE_LIBMOUNT=1
+MOUNT_LIBS="-lmount"
+MOUNT_CFLAGS="-I/tools/include/libmount"
+cc_cv_CFLAGS__flto=no
+XSLTPROC="/usr/bin/xsltproc"
+EOF
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --localstatedir=/var   \
+            --config-cache         \
+            --with-rootprefix=     \
+            --with-rootlibdir=/lib \
+            --enable-split-usr     \
+            --disable-firstboot    \
+            --disable-ldconfig     \
+            --disable-sysusers     \
+            --without-python       \
+            --docdir=/usr/share/doc/systemd-$version                                      
+make 
+make DESTDIR=$PKG install
+
+mkdir $PKG/sbin
+for cat in 1 3 5 7 8
+do
+mkdir -pv $PKG/usr/share/man/man${cat}
+  install -v -m644 man/*.${cat} $PKG/usr/share/man/man${cat}
+done
+
+mv -v $PKG/usr/lib/libnss_{myhostname,mymachines,resolve}.so.2 $PKG/lib
+
+rm -rfv $PKG/usr/lib/rpm
+
+for tool in runlevel reboot shutdown poweroff halt telinit; do
+     ln -sfv ../bin/systemctl $PKG/sbin/${tool}
+done
+ln -sfv ../lib/systemd/systemd $PKG/sbin/init
+
+mkdir -pv $PKG/var/log/journal
+sed -i "s@0775 root lock@0755 root root@g" $PKG/usr/lib/tmpfiles.d/legacy.conf
+
+touch $PKG/etc/machine-id
+}
+

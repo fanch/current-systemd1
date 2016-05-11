@@ -1,0 +1,20 @@
+# Description: A SDL MPEG player library.
+# URL: http://www.lokigames.com/development/smpeg.php3
+# Packager: fanch at nutyx dot org
+# Depends on: sdl
+
+name=smpeg
+version=0.4.5
+release=3
+source=(http://crux.ster.zone/downloads/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/share/man
+	make
+	make install DESTDIR=$PKG
+}
+
+

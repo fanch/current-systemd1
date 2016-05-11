@@ -1,0 +1,20 @@
+# Packager: pierre at nutyx dot org
+
+description="Generate Makefiles and aims to be platform- and compiler-independent."
+url="http://www.cmake.org"
+name=cmake
+version=3.5.1
+release=1
+
+source=($url/files/v${version%.*}/$name-$version.tar.gz)
+
+build() {
+cd $name-$version
+./bootstrap --prefix=/usr \
+--mandir=/share/man \
+--system-libs \
+--no-system-jsoncpp \
+--docdir=/share/doc/cmake-$version
+make
+make DESTDIR=$PKG install
+}

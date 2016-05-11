@@ -1,0 +1,21 @@
+# Description: Outline and bitmap font editor
+# URL: http://fontforge.sourceforge.net
+# Packager: pierre at nutyx dot org
+# Depends on: git xorg-libxi libxml2 pango giflib libtiff 
+
+name=fontforge
+version=20150824
+release=1
+
+source=(https://github.com/$name/$name/releases/download/$version/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+	sed -i 's%naist.jp/pub/NetBSD/packages%netbsd.org/pub/pkgsrc%' tests/Makefile.in 
+	./configure --prefix=/usr     \
+            --enable-gtk2-use \
+            --disable-static  \
+            --docdir=/usr/share/doc/$name-$version
+    make
+    make DESTDIR=$PKG install
+}
