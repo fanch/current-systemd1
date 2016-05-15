@@ -9,7 +9,8 @@ source=(http://www.nico.schottelius.org/software/$name/archives/$name-$version.t
 
 build() {
 	source /etc/blfs-bootscripts
-	wget  http://www.linuxfromscratch.org/blfs/downloads/svn/$scripts-$scriptsversion.tar.bz2
+	wget http://ftp.osuosl.org/pub/blfs/conglomeration/blfs-bootscripts/$scripts-$scriptsversion.tar.bz2
+
 	tar xvf $scripts-$scriptsversion.tar.bz2
 
 	cd $name-$version
