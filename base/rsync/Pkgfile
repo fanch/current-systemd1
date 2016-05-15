@@ -10,7 +10,7 @@ source=( http://rsync.samba.org/ftp/$name/$name-$version.tar.gz
 
 build() {
 source /etc/blfs-bootscripts
-wget http://www.linuxfromscratch.org/blfs/downloads/svn/$scripts-$scriptsversion.tar.bz2
+wget http://ftp.osuosl.org/pub/blfs/conglomeration/blfs-bootscripts/$scripts-$scriptsversion.tar.bz2
 
 cd $name-$version
 ./configure --prefix=/usr \
