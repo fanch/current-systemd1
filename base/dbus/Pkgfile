@@ -13,15 +13,22 @@ source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz \
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var \
-            --libexecdir=/usr/lib/dbus-1.0 \
-            --disable-static \
-            --enable-systemd \
-            --docdir=/usr/share/doc/dbus-$version \
-            --with-console-auth-dir=/run/console/ \
-            --with-systemdsystemunitdir=/lib/systemd/system
+	./configure --prefix=/usr 										\
+				--sysconfdir=/etc 									\
+				--localstatedir=/var 								\
+				--libexecdir=/usr/lib/dbus-1.0  					\
+				--with-dbus-user=dbus 								\
+				--with-system-pid-file=/run/dbus/pid 				\
+				--with-system-socket=/run/dbus/system_bus_socket 	\
+				--with-console-auth-dir=/run/console/ 				\
+				--enable-inotify 									\
+				--disable-verbose-mode                              \
+				--disable-static 									\
+				--disable-tests 									\
+				--disable-asserts 									\
+				--with-systemdsystemunitdir=/usr/lib/systemd/system \
+				--enable-systemd 									\
+				--enable-user-session
 	make
 	make DESTDIR=$PKG install
 mkdir -p $PKG/lib
