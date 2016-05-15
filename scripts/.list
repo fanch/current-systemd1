@@ -37,7 +37,6 @@ automake
 xz
 kmod
 gettext
-util-linux
 systemd
 procps-ng
 e2fsprogs
@@ -55,6 +54,7 @@ libpipeline
 make
 patch
 dbus
+util-linux
 man-db
 tar
 texinfo
