@@ -25,7 +25,7 @@ build() {
 	make DESTDIR=$PKG install
 mkdir -p $PKG/lib
 mv -v $PKG/usr/lib/libdbus-1.so.* $PKG/lib
-ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) $PKG/usr/lib/libdbus-1.so
+ln -svf ../../lib/libdbus.so.$version $PKG/usr/lib/libdbus-1.so
 mkdir -p $PKG/var/lib	
 ln -sfv /etc/machine-id $PKG/var/lib/dbus
 }
