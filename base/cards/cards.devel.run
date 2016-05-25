@@ -6,6 +6,7 @@ bison
 binutils.devel
 bzip2.devel
 curl.devel
+dbus
 dbus.devel
 e2fsprogs.devel
 expat.devel
@@ -32,6 +33,7 @@ procps-ng.devel
 readline.devel
 rsync
 systemd
+systemd.devel
 lvm2.devel
 libtool
 texinfo
