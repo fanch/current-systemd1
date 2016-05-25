@@ -6,17 +6,27 @@
 PKGMK_GROUPS=(man)
 PKGMK_IGNORE_RUNTIMEDEPS=yes
 
+
 name=nutyx
-version=8.1
+version=7.9
 release=1
-source=(http://downloads.nutyx.org/files/nutyx-basicfs-$version.tar.bz2)
+source=(nu flushmem)
 build () {
-cd nutyx-basicfs/nutyx-houaphan-basicfs/rootfs
-mv * $PKG/
-mkdir -p $PKG/usr/local
+mkdir $PKG/{dev,proc,sys}
+mknod -m 600 $PKG/dev/console c 5 1
+mknod -m 666 $PKG/dev/null c 1 3
+mkdir -pv $PKG/{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt,run}
+mkdir -pv $PKG/{media/{floppy,cdrom},sbin,srv,var}
+install -dv -m 0750 $PKG/root
+install -dv -m 1777 $PKG/tmp $PKG/var/tmp
+mkdir -pv $PKG/usr/{,local/}{bin,include,lib,sbin,src}
+mkdir -pv $PKG/usr/{,local/}share/{doc,info,locale,man}
+mkdir -v  $PKG/usr/{,local/}share/{misc,zoneinfo}
+mkdir -pv $PKG/usr/{,local/}share/man/man{1..8}
+install -m755 nu $PKG/usr/bin/nu
 case $(uname -m) in
-x86_64) ln -sv lib $PKG/lib64
-        ln -sv lib $PKG/usr/lib64
-        ln -sv lib $PKG/usr/local/lib64;;
+ x86_64) ln -sv lib $PKG/lib64
+         ln -sv lib $PKG/usr/lib64
+         ln -sv lib $PKG/usr/local/lib64;;
 esac
 }
