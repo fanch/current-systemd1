@@ -10,6 +10,8 @@ release=1
 
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz \
        dbus.system-local.conf)
+       
+PKGMK_GROUPS=(man doc)       
 
 build() {
 	cd $name-$version
@@ -28,4 +30,11 @@ mv -v $PKG/usr/lib/libdbus-1.so.* $PKG/lib
 ln -svf ../../lib/libdbus.so.$version $PKG/usr/lib/libdbus-1.so
 mkdir -p $PKG/var/lib	
 ln -sfv /etc/machine-id $PKG/var/lib/dbus
+}
+devel () {
+cd $PKG
+bsdtar -cf \
+$PKGMK_PACKAGE_DIR/${name}.devel${PKGMK_BUILDVER}`uname -m`.$PKGMK_PACKAGE_EXT \
+usr/lib usr/include
+rm -rvf usr/lib usr/include
 }
