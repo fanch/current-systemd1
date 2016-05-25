@@ -364,7 +364,7 @@ generate_blfs_bootscripts() {
 [ -f ${FOLDER}/etc/${FOLDER}/etc/blfs-bootscripts ] && return
 [ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
 echo "scripts=blfs-bootscripts
-scriptsversion=20150924" > ${FOLDER}/etc/blfs-bootscripts
+scriptsversion=20160415" > ${FOLDER}/etc/blfs-bootscripts
 }
 generate_etc_bashrc() {
 local FILE
@@ -795,6 +795,62 @@ fi
 export INPUTRC
 EOF
 }
+generate_readline_sh() {
+local FILE
+FILE="readline.sh"
+[ -f ${FOLDER}/etc/profile.d/$FILE ] && return
+[ ! -d ${FOLDER}/etc/profile.d ] && mkdir -pv ${FOLDER}/etc/profile.d
+if [ -f /etc/${INSTALL_COMMAND}.conf.d/$FILE ]; then
+   cp /etc/${INSTALL_COMMAND}.conf.d/$FILE \
+   ${FOLDER}/etc/profile.d/$FILE
+   return
+fi
+cat > ${FOLDER}/etc/profile.d/$FILE << "EOF"
+# Setup the INPUTRC environment variable.
+if [ -z "$INPUTRC" -a ! -f "$HOME/.inputrc" ] ; then
+        INPUTRC=/etc/inputrc
+fi
+export INPUTRC
+EOF
+}
+generate_i18n_sh() {
+local FILE
+FILE="i18n.sh"
+[ -f ${FOLDER}/etc/profile.d/$FILE ] && return
+[ ! -d ${FOLDER}/etc/profile.d ] && mkdir -pv ${FOLDER}/etc/profile.d
+if [ -f /etc/${INSTALL_COMMAND}.conf.d/$FILE ]; then
+   cp /etc/${INSTALL_COMMAND}.conf.d/$FILE \
+   ${FOLDER}/etc/profile.d/$FILE
+   return
+fi
+cat > ${FOLDER}/etc/profile.d/$FILE << "EOF"
+# Begin /etc/profile.d/i18n.sh
+unset LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES \
+      LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
+
+if [ -n "$XDG_CONFIG_HOME" ] && [ -r "$XDG_CONFIG_HOME/locale.conf" ]; then
+  . "$XDG_CONFIG_HOME/locale.conf"
+elif [ -r /etc/locale.conf ]; then
+  . /etc/locale.conf
+fi
+
+export LANG="${LANG:-C}"
+[ -n "$LC_CTYPE" ]          && export LC_CTYPE
+[ -n "$LC_NUMERIC" ]        && export LC_NUMERIC
+[ -n "$LC_TIME" ]           && export LC_TIME
+[ -n "$LC_COLLATE" ]        && export LC_COLLATE
+[ -n "$LC_MONETARY" ]       && export LC_MONETARY
+[ -n "$LC_MESSAGES" ]       && export LC_MESSAGES
+[ -n "$LC_PAPER" ]          && export LC_PAPER
+[ -n "$LC_NAME" ]           && export LC_NAME
+[ -n "$LC_ADDRESS" ]        && export LC_ADDRESS
+[ -n "$LC_TELEPHONE" ]      && export LC_TELEPHONE
+[ -n "$LC_MEASUREMENT" ]    && export LC_MEASUREMENT
+[ -n "$LC_IDENTIFICATION" ] && export LC_IDENTIFICATION
+
+# End /etc/profile.d/i18n.sh
+EOF
+}
 generate_extrapaths_sh() {
 local FILE
 FILE="extrapaths.sh"
@@ -1094,6 +1150,55 @@ tmpfs          /run         tmpfs    defaults            0     0
 devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
 EOF
 }
+generate_adjtime() {
+local FILE
+FILE="adjtime"
+[ -f ${FOLDER}/etc/$FILE ] && return
+[ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
+if [ -f /etc/${INSTALL_COMMAND}.conf.d/$FILE ]; then
+   cp /etc/${INSTALL_COMMAND}.conf.d/$FILE \
+   ${FOLDER}/etc/$FILE
+   return
+fi
+cat > ${FOLDER}/etc/$FILE << "EOF"
+# Begin /etc/adjtime (LOCAL or UTC)
+0.0 0 0.0
+0
+LOCAL
+#UTC
+# End /etc/adjtime
+EOF
+}
+generate_locale_conf() {
+local FILE
+FILE="locale.conf"
+[ -f ${FOLDER}/etc/$FILE ] && return
+[ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
+if [ -f /etc/${INSTALL_COMMAND}.conf.d/$FILE ]; then
+   cp /etc/${INSTALL_COMMAND}.conf.d/$FILE \
+   ${FOLDER}/etc/$FILE
+   return
+fi
+cat > ${FOLDER}/etc/$FILE << "EOF"
+# Begin /etc/locale.conf
+#LANG=cs_CZ.utf8
+#LANG=de_DE.utf8
+#LANG=en_GB.utf8
+#LANG=en_HK.utf8
+#LANG=en_PH.utf8
+#LANG=en_US.utf8
+#LANG=es_MX.utf8
+#LANG=fa_IR/utf8 
+LANG=fr_FR.utf8
+#LANG=it_CH.utf8
+#LANG=it_IT.utf8
+#LANG=ja_JP.EUC-JP
+#LANG=ru_RU/utf8 
+#LANG=tr_TR.utf8
+#LANG=zh_CN.GB18030
+# End /etc/locale.conf
+EOF
+}
 generate_dmrc() {
 local FILE
 FILE=".dmrc"
@@ -1367,14 +1472,14 @@ check_tools() {
 check_variables() {
 
 [ -z $URL ] && URL="http://downloads.nutyx.org"
-[ -z $VERSION ] && VERSION="8.0"
+[ -z $VERSION ] && VERSION="7.9"
 [ -z $DEPOT ] && DEPOT="/var/lib/pkg/depotrepo"
 [ -z $FOLDER ] && FOLDER="/mnt/hd"
 
 HOMEPAGE="${URL}"                       ## http://downloads.nutyx.org
-INSTALL_BASE="$VERSION/$ARCH"           ## 8.0/x86_64
-DEPOT_ROOT="$HOMEPAGE/${INSTALL_BASE}"  ## http://downloads.nutyx.org/8.0/x86_64
-DEPOT_BASE="$DEPOT_ROOT/$BASE"          ## http://downloads.nutyx.org/8.0/x86_64/base
+INSTALL_BASE="$VERSION/$ARCH"           ## 7.9/x86_64
+DEPOT_ROOT="$HOMEPAGE/${INSTALL_BASE}"  ## http://downloads.nutyx.org/7.9/x86_64
+DEPOT_BASE="$DEPOT_ROOT/$BASE"          ## http://downloads.nutyx.org/7.9/x86_64/base
 
 LOCAL_DEPOT_PACKAGES="$DEPOT/$BASE"
 DEPOT_CD="/media/cdrom"
@@ -1515,15 +1620,15 @@ cards install e2fsprogs \
 reiserfsprogs \
 xfsprogs jfsutils \
 btrfs-progs sudo \
-sysklogd sysvinit \
+systemd \
 dhcpcd grub \
 tzdata iproute2 iana-etc \
-e3 eudev kmod less \
+e3 dbus kmod less \
 groff man-db cards.man \
 nutyx.man \
 lvm2 mdadm dialog cpio squashfs \
 linux-firmware \
-kernel-lts \
+kernel \
 ca-certificates
 exit" > $FOLDER/$SETUP_FILE
 chmod 177 $FOLDER/$SETUP_FILE
@@ -1534,6 +1639,8 @@ unmountall
 install_configuration_files() {
 	generate_cards_conf
 	generate_pkgmk_conf
+	generate_locale_conf
+	generate_adjtime
 	generate_fstab
 	generate_passwd
 	generate_group
@@ -1545,6 +1652,7 @@ install_configuration_files() {
 	generate_shells
 	generate_dircolors_sh
 	generate_extrapaths_sh
+    generate_i18n_sh
 	generate_readline_sh
 	generate_umask_sh
 	generate_profile
