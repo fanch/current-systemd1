@@ -11,7 +11,7 @@ release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz \
        dbus.system-local.conf)
        
-PKGMK_GROUPS=(man doc)       
+PKGMK_GROUPS=(devel man doc)       
 
 build() {
 	cd $name-$version
