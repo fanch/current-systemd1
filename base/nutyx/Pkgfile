@@ -10,7 +10,7 @@ PKGMK_IGNORE_RUNTIMEDEPS=yes
 name=nutyx
 version=7.9
 release=1
-source=(nu flushmem)
+source=()
 build () {
 mkdir $PKG/{dev,proc,sys}
 mknod -m 600 $PKG/dev/console c 5 1
@@ -23,7 +23,6 @@ mkdir -pv $PKG/usr/{,local/}{bin,include,lib,sbin,src}
 mkdir -pv $PKG/usr/{,local/}share/{doc,info,locale,man}
 mkdir -v  $PKG/usr/{,local/}share/{misc,zoneinfo}
 mkdir -pv $PKG/usr/{,local/}share/man/man{1..8}
-install -m755 nu $PKG/usr/bin/nu
 case $(uname -m) in
  x86_64) ln -sv lib $PKG/lib64
          ln -sv lib $PKG/usr/lib64
