@@ -1136,6 +1136,11 @@ anonymous:x:98:99:Unprivileged User:/dev/null:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
 EOF
 }
+generate_mtab() {
+[ -f ${FOLDER}/etc/mtab ] && return
+[ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
+ln -sv /proc/self/mounts ${FOLDER}/etc/mtab
+}
 generate_fstab() {
 local FILE
 FILE="fstab"
@@ -1825,6 +1830,7 @@ install_configuration_files() {
 	generate_pkgmk_conf
 	generate_locale_conf
 	generate_adjtime
+	generate_mtab
 	generate_fstab
 	generate_passwd
 	generate_group
