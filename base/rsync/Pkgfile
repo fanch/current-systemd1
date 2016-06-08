@@ -9,8 +9,8 @@ source=( http://rsync.samba.org/ftp/$name/$name-$version.tar.gz
 	rsync.driver )
 
 build() {
-source /etc/blfs-bootscripts
-wget http://ftp.osuosl.org/pub/blfs/conglomeration/blfs-bootscripts/$scripts-$scriptsversion.tar.bz2
+source /etc/blfs-systemd-units
+wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
 
 cd $name-$version
 ./configure --prefix=/usr \
