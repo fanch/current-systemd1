@@ -360,11 +360,11 @@ do
 	install_pkg "$i"
 done
 }
-generate_blfs_bootscripts() {
-[ -f ${FOLDER}/etc/${FOLDER}/etc/blfs-bootscripts ] && return
+generate_blfs_systemd_units() {
+[ -f ${FOLDER}/etc/${FOLDER}/etc/blfs-systemd-units ] && return
 [ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
-echo "scripts=blfs-bootscripts
-scriptsversion=20160415" > ${FOLDER}/etc/blfs-bootscripts
+echo "scripts=blfs-systemd-units
+scriptsversion=" > ${FOLDER}/etc/blfs-systemd-units
 }
 generate_etc_bashrc() {
 local FILE
@@ -1858,7 +1858,7 @@ install_configuration_files() {
 	generate_udev_retry
 	generate_rc_site
 	generate_etc_bashrc
-	generate_blfs_bootscripts
+	generate_blfs_systemd_units
 	generate_nutyx_version
 }
 print_help() {
