@@ -6,10 +6,9 @@
 # Run on: glib  gperf
 
 name=systemd
-version=229
+version=230
 release=1
-source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz
-http://www.linuxfromscratch.org/patches/lfs/$name/$name-$version-compat-1.patch)
+source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz)
 
 PKGMK_GROUPS=(devel man doc)
 
@@ -17,7 +16,6 @@ build()
 {
 cd $name-$version
 sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
-patch -Np1 -i ../$name-$version-compat-1.patch
 sed -e 's@test/udev-test.pl @@'  \
     -e 's@test-copy$(EXEEXT) @@' \
     -i Makefile.in
