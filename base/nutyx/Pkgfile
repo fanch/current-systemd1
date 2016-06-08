@@ -10,8 +10,8 @@ name=nutyx
 version=7.9
 release=1
 scripts=blfs-systemd-units
-scripts-version=20150310
-source=(nu flushmem  http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20150310.tar.bz2)
+scripts-version=
+source=(nu flushmem  http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-.tar.bz2)
 build () {
 mkdir $PKG/{dev,proc,sys}
 mknod -m 600 $PKG/dev/console c 5 1
@@ -47,14 +47,6 @@ mkdir -v $PKG/var/{log,mail,spool}
 ln -sv $PKG/run $PKG/var/run
 ln -sv $PKG/run/lock $PKG/var/lock
 mkdir -pv $PKG/var/{opt,cache,lib/{color,misc,locate},local}
-
-ln -sv /tools/bin/{bash,cat,echo,pwd,stty} $PKG/bin
-ln -sv /tools/bin/perl $PKG/usr/bin
-ln -sv /tools/bin/env $PKG/usr/bin
-ln -sv /tools/lib/libgcc_s.so{,.1} $PKG/usr/lib
-ln -sv /tools/lib/libstdc++.so{,.6} $PKG/usr/lib
-sed 's/tools/usr/' /tools/lib/libstdc++.la > $PKG/usr/lib/libstdc++.la
-ln -sv bash $PKG/bin/sh
 
 touch $PKG/etc/mtab
 
@@ -602,7 +594,7 @@ cat > $PKG/etc/blfs-systemd-units << "EOF"
 scripts=blfs-systemd-units
 EOF
 echo "scriptsversion=$scriptsversion" >> $PKG/etc/blfs-systemd-units
-EOF
+
 
 # X11 bug
 mkdir -p $PKG/etc/X11/xorg.conf.d
