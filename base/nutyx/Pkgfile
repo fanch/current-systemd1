@@ -559,6 +559,10 @@ LOCAL
 EOF
 
 cat > $PKG/etc/locale.conf << "EOF"
+LANG=fr_FR.UTF-8
+EOF
+
+cat > $PKG/etc/vconsole.conf << "EOF"
 KEYMAP=fr-latin9
 FONT=lat9w-16
 EOF
