@@ -1,5 +1,6 @@
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.tar.xz
 https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.6.xz
-http://downloads.nutyx.org/current/sources/cards-2.0.tar.gz
+http://downloads.nutyx.org/files/cards-2.1.1.tar.gz
 http://downloads.nutyx.org/files/nutyx-basicfs-8.1.tar.bz2
 http://linux-pam.org/library/Linux-PAM-1.2.1.tar.bz2
 ftp://openssl.org/source/openssl-1.0.2h.tar.gz
@@ -10,7 +11,7 @@ http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz
 ftp://sources.redhat.com/pub/lvm2/LVM2.2.02.152.tgz
 http://ftp.gnu.org/gnu/wget/wget-1.17.1.tar.xz
 http://rsync.samba.org/ftp/rsync/rsync-3.1.2.tar.gz
- http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20150310.tar.bz2	
+http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-.tar.bz2	
 http://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2
 http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz
 http://downloads.nutyx.org/files/patchs/openssh-server/service-saravane-01.patch
