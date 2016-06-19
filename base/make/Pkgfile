@@ -3,8 +3,9 @@
 # Maintainers: Paul D. Smith psmith at gnu dot org,Boris Kolpackov boris at kolpackov dot net
 # Packager: tnuttens at gmail dot com
 PKGMK_GROUPS=(man locale)
+
 name=make
-version=4.2
+version=4.2.1
 release=1
 
 source=(http://ftp.gnu.org/gnu/make/make-$version.tar.bz2)
