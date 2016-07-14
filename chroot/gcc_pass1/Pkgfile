@@ -9,7 +9,7 @@ build()
 {
 cd  gcc-$version
 mv ../mpfr-3.1.4 mpfr
-mv ../gmp-6.1.0 gmp
+mv ../gmp-6.1.1 gmp
 mv ../mpc-1.0.3 mpc
 
 for file in \
