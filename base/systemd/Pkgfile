@@ -16,6 +16,9 @@ build()
 {
 cd $name-$version
 sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
+sed -e 's@DRI and frame buffer@DRI@'                  \
+    -e '/SUBSYSTEM==\"graphics\", KERNEL==\"fb\*\"/d' \
+    -i  src/login/70-uaccess.rules
 sed -e 's@test/udev-test.pl @@'  \
     -e 's@test-copy$(EXEEXT) @@' \
     -i Makefile.in
@@ -33,17 +36,18 @@ MOUNT_CFLAGS="-I/tools/include/libmount"
 cc_cv_CFLAGS__flto=no
 XSLTPROC="/usr/bin/xsltproc"
 EOF
-./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --localstatedir=/var   \
-            --config-cache         \
-            --with-rootprefix=     \
-            --with-rootlibdir=/lib \
-            --enable-split-usr     \
-            --disable-firstboot    \
-            --disable-ldconfig     \
-            --disable-sysusers     \
-            --without-python       \
+./configure --prefix=/usr            \
+            --sysconfdir=/etc        \
+            --localstatedir=/var     \
+            --config-cache           \
+            --with-rootprefix=       \
+            --with-rootlibdir=/lib   \
+            --enable-split-usr       \
+            --disable-firstboot      \
+            --disable-ldconfig       \
+            --disable-sysusers       \
+            --without-python         \
+            --with-default-dnssec=no \
             --docdir=/usr/share/doc/systemd-$version                                      
 sed -i "s:minix:ext4:g" src/test/test-path-util.c                                                 
 make LIBRARY_PATH=/tools/lib 
@@ -53,7 +57,7 @@ mkdir $PKG/sbin
 for cat in 1 3 5 7 8
 do
 mkdir -pv $PKG/usr/share/man/man${cat}
-  install -v -m644 man/*.${cat} $PKG/usr/share/man/man${cat}
+install -v -m644 man/*.${cat} $PKG/usr/share/man/man${cat}
 done
 
 mv -v $PKG/usr/lib/libnss_{myhostname,mymachines,resolve}.so.2 $PKG/lib
