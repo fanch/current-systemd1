@@ -1,6 +1,7 @@
 # Description: The Open Source toolkit for Secure Sockets Layer and Transport Layer Security.
 # URL: http://www.openssl.org/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
+
 name=openssl
 version=1.0.2h
 release=1
@@ -14,9 +15,11 @@ unset MAKEFLAGS
 
 cd $name-$version
 
-./config --prefix=/usr \
-	--openssldir=/etc/ssl \
-	shared zlib-dynamic
+./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic
 
 make
 make INSTALL_PREFIX=$PKG MANDIR=/usr/share/man \
