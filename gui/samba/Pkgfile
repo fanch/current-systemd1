@@ -1,17 +1,17 @@
 # Description: SMB Fileserver and AD Domain server
 # URL: http://www.samba.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: talloc tevent avahi gnutls libgpg-error popt python cups kerberos libcap tdb openldap libxslt
 
 name=samba
-version=4.4.2
+version=4.4.5
 release=1
 
 source=( http://ftp.samba.org/pub/samba/stable/$name-$version.tar.gz)
 
 build() {
-source /etc/blfs-bootscripts
-wget http://www.linuxfromscratch.org/blfs/downloads/svn/$scripts-$scriptsversion.tar.bz2
+source /etc/blfs-systemd-units
+        wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
 if [ "`uname -m`" == "x86_64" ]; then
         LIB=lib64
 else
