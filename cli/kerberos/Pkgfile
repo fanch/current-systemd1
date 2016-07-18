@@ -1,14 +1,18 @@
 # Description: The Kerberos network authentication system
 # URL: http://web.mit.edu/kerberos/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org - systemd
 
 name=kerberos
-version=1.14
+version=1.14.2
 release=1
 
 source=(http://web.mit.edu/$name/dist/krb5/1.14/krb5-$version.tar.gz)
 
 build()  {
+	source /etc/blfs-systemd-units
+        wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+        tar xvf $scripts-$scriptsversion.tar.bz2
+
         cd krb5-$version
         cd src
         sed -e "s@python2.5/Python.h@& python2.7/Python.h@g" \
@@ -16,7 +20,10 @@ build()  {
     	-i configure.in
 
 	sed -e 's@\^u}@^u cols 300}@' \
-    	-i tests/dejagnu/config/default.exp 
+    	-i tests/dejagnu/config/default.exp
+
+	sed -e '/eq 0/{N;s/12 //}' \
+    -i plugins/kdb/db2/libdb2/test/run.test 
 
 autoconf
 
@@ -51,4 +58,6 @@ chmod -v 755 $PKG/bin/ksu
 install -v -dm755 $PKG/usr/share/doc/krb5-$version
 cp -vfr ../doc/*  $PKG/usr/share/doc/krb5-$version
 
+cd ../$scripts-$scriptsversion
+make DESTDIR=$PKG install-krb5
 }
