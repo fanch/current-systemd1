@@ -1,6 +1,6 @@
 # Description: The principal firewall tool for Linux.
 # URL: http://www.iptables.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org - systemd
 
 name=iptables
 version=1.6.0
@@ -8,19 +8,15 @@ release=1
 
 source=( http://www.netfilter.org/projects/iptables/files/$name-$version.tar.bz2)
 build() {
-source /etc/blfs-bootscripts
-wget  http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-bootscripts-$scriptsversion.tar.bz2
-tar xvf $scripts-$scriptsversion.tar.bz2
-
 cd $name-$version
-
-./configure --prefix=/usr \
---sbindir=/sbin \
---with-xtlibdir=/lib/xtables \
---with-pkgconfigdir=/usr/lib/pkgconfig \
---enable-libipq \
---disable-nftables \
---enable-devel
+	source /etc/blfs-systemd-units
+        wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+        tar xvf $scripts-$scriptsversion.tar.bz2
+./configure --prefix=/usr      \
+            --sbindir=/sbin    \
+            --disable-nftables \
+            --enable-libipq    \
+            --with-xtlibdir=/lib/xtables
 make
 make DESTDIR=$PKG install
 
