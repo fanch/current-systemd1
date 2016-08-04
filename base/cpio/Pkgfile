@@ -1,15 +1,13 @@
 # Description: Copies files into or out of a cpio or tar archive.
 # URL: http://www.gnu.org/software/cpio/
-# Maintainer: Sergey Poznyakoff
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 
 name=cpio
 version=2.12
 release=1
 
-source=( http://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2\
-)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2)
 
 
 build() {
@@ -20,5 +18,4 @@ build() {
             --with-rmt=/usr/libexec/rmt
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/info/dir
 }
