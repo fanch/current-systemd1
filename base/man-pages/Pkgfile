@@ -1,16 +1,14 @@
 # Description: Linux man pages.
 # URL: http://man7.org/linux/man-pages/index.html
-# Maintainer: NuTyX core team
-# Packagers: tnut at nutyx dot org
+# Packagers: fanch at nutyx dot org
 
 name=man-pages
-version=4.06
+version=4.07
 release=1
 
-source=(\
-http://www.kernel.org/pub/linux/docs/man-pages/man-pages-$version.tar.xz)
-build()
-{
+source=(http://www.kernel.org/pub/linux/docs/man-pages/man-pages-$version.tar.xz)
+
+build() {
 cd  man-pages-$version
 make 
 make DESTDIR=$PKG install
