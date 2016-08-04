@@ -79,10 +79,4 @@ sed -i "s@0775 root lock@0755 root root@g" $PKG/usr/lib/tmpfiles.d/legacy.conf
 
 touch $PKG/etc/machine-id
 }
-devel () {
-cd $PKG
-bsdtar -cf \
-$PKGMK_PACKAGE_DIR/${name}.devel${PKGMK_BUILDVER}`uname -m`.$PKGMK_PACKAGE_EXT \
-usr/lib usr/include
-rm -rvf usr/lib usr/include
-}
+
