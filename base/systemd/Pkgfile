@@ -8,7 +8,7 @@
 name=systemd
 version=230
 release=1
-source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz system-session systemd-user)
+source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz systemd-user)
 
 PKGMK_GROUPS=(devel man doc)
 
