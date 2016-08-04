@@ -1,14 +1,14 @@
-# Description: Démon pour la gestion du matériel dans l'espace utilisateur
-# URL: http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
+# Description: system and service manager
+# URL: http://www.freedesktop.org/wiki/Software/systemd
 # Maintainer: cgit.freedesktop.org/systemd/
-# Packager: thierryn1 at hispeed dot ch
-# Depends on: glib  gperf  gobject-introspection
-# Run on: glib  gperf
+# Packager: fanch at nutyx dot org
+# Depends on:  pam
+# Run on: glib  gobject-introspection gperf 
 
 name=systemd
 version=230
 release=1
-source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz)
+source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz system-session systemd-user)
 
 PKGMK_GROUPS=(devel man doc)
 
@@ -71,6 +71,11 @@ ln -sfv ../lib/systemd/systemd $PKG/sbin/init
 
 mkdir -pv $PKG/var/log/journal
 sed -i "s@0775 root lock@0755 root root@g" $PKG/usr/lib/tmpfiles.d/legacy.conf
+
+# install the system-session file
+    install -Dm644 $SRC/system-session $PKG/etc/pam.d/system-session
+# install the systemd-user file
+    install -Dm644 $SRC/systemd-user $PKG/etc/pam.d/systemd-user
 
 touch $PKG/etc/machine-id
 }
