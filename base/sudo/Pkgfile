@@ -1,10 +1,10 @@
 # Description: Give certain users (or groups) the ability to run some commands as root.
 # URL: http://www.sudo.ws
-# Packagers: pierre at nutyx dot org, tnut at nutyx dot org
+# Packagers: fanch at nutyx dot org - systemd
 # Depends on: pam
 
 name=sudo
-version=1.8.15
+version=1.8.17p1
 release=1
 
 source=(http://www.sudo.ws/sudo/dist/$name-$version.tar.gz)
