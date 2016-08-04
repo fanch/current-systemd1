@@ -11,7 +11,7 @@ version=7.9
 release=1
 scripts=blfs-systemd-units
 scripts-version=
-source=(nu flushmem  http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-.tar.bz2)
+source=(nu flushmem  http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20160602.tar.bz2)
 build () {
 mkdir $PKG/{dev,proc,sys}
 mknod -m 600 $PKG/dev/console c 5 1
