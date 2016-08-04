@@ -72,8 +72,6 @@ ln -sfv ../lib/systemd/systemd $PKG/sbin/init
 mkdir -pv $PKG/var/log/journal
 sed -i "s@0775 root lock@0755 root root@g" $PKG/usr/lib/tmpfiles.d/legacy.conf
 
-# install the system-session file
-    install -Dm644 $SRC/system-session $PKG/etc/pam.d/system-session
 # install the systemd-user file
     install -Dm644 $SRC/systemd-user $PKG/etc/pam.d/systemd-user
 
