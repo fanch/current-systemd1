@@ -10,7 +10,7 @@ name=nutyx
 version=7.9
 release=1
 scripts=blfs-systemd-units
-scripts-version=20160602
+scriptsversion=20160602
 source=(nu flushmem  http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20160602.tar.bz2)
 build () {
 mkdir $PKG/{dev,proc,sys}
