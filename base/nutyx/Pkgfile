@@ -130,7 +130,7 @@ EOF
 cat > $PKG/etc/blfs-systemd-units << "EOF"
 scripts=blfs-systemd-units
 EOF
-echo "scriptsversion=$scriptsversion" >> $PKG/etc/blfs-systemd-units
+echo "scriptsversion=$scripts-version" >> $PKG/etc/blfs-systemd-units
 
 
 # X11 bug
