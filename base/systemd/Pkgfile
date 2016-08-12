@@ -6,7 +6,7 @@
 # Run on: glib  gobject-introspection gperf 
 
 name=systemd
-version=230
+version=231
 release=1
 source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz systemd-user)
 
