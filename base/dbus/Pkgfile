@@ -29,9 +29,6 @@ build() {
                 --disable-static
 	make
 	make DESTDIR=$PKG install
-mkdir -p $PKG/lib
-mv -v $PKG/usr/lib/libdbus-1.so.* $PKG/lib
-ln -svf ../../lib/libdbus.so.$version $PKG/usr/lib/libdbus-1.so
 mkdir -p $PKG/var/lib	
 ln -sfv /etc/machine-id $PKG/var/lib/dbus
 }
