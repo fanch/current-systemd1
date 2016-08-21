@@ -1,16 +1,16 @@
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 PKGMK_GROUPS=(devel man doc)
 url="https://www.kernel.org/pub/linux/utils/net/iproute2/"
 description="Programs for basic and advanced network routing."
+
 name=iproute2
-version=4.6.0
+version=4.7.0
 release=1
 
 source=($url/iproute2-$version.tar.xz)
 
-build()
-{
+build() {
 cd iproute2-$version
 sed -i /ARPD/d Makefile
 sed -i 's/arpd.8//' man/man8/Makefile
@@ -26,12 +26,10 @@ make SBINDIR=/sbin MANDIR=/usr/share/man \
      DOCDIR=/usr/share/doc/iproute2-$version install
 rm -rf $PKG/usr/share/info/dir
 }
-devel()
-{
+devel() {
 cd $PKG
 bsdtar -cf \
 $PKGMK_PACKAGE_DIR/${name}.devel${PKGMK_BUILDVER}any.$PKGMK_PACKAGE_EXT \
 usr/lib
-
 rm -r usr/lib
 }
