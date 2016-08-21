@@ -1,12 +1,13 @@
 # Description: Linker, assembler, and other tools for handling object files.
 # URL: http://sources.redhat.com/binutils/
 # Maintainers: Tristan Gingold ( gingold at adacore dot com ),Alan Modra ( amodra at bigpond dot net dot au )
-# Packager: tnut at nutyx dot org
-name=binutils
-version=2.26.1
-release=1
+# Packager: fanch at nutyx dot org
 
+name=binutils
+version=2.27
+release=1
 source=(http://ftp.gnu.org/gnu/binutils/binutils-$version.tar.bz2)
+
 build()
 {
 cd binutils-$version
@@ -24,17 +25,16 @@ make tooldir=/
 
 # make  LDFLAGS="" -k check || true
 
-# make tooldir=/usr DESTDIR=$PKG install
 make tooldir=/usr DESTDIR=$PKG install
 
 rm -rf $PKG/usr/share/info/dir
 mkdir $PKG/lib
 for lib in libopcodes libbfd
 do
-	mv $PKG/usr/lib/$lib-$version.20160125.so \
+	mv $PKG/usr/lib/$lib-$version.so \
 	$PKG/lib/$lib-$version.so
 	ln -s $lib-$version.so  $PKG/lib/$lib
-	ln -s ../../lib/$lib-$version.20160125.so \
+	ln -s ../../lib/$lib-$version.so \
 	$PKG/usr/lib/$lib-$version.so
 	ln -s ../../lib/$lib-$version.so \
 	$PKG/usr/lib/$lib
