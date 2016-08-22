@@ -1,14 +1,12 @@
-# Description: Qt is a cross-platform framework that is widely used for developing GUI applications
+# Description: A cross-platform application and UI framework.
 # URL: http://www.qt.io/
-# Packager: pierre at nutyx dot org, tnut at nutyx dot org
-# Depends on: glib atk pango cairo gdk-pixbuf xorg-fontconfig xorg-libsm xorg-libxrandr xorg-libxv xorg-libxi xorg-libxinerama xorg-libxcursor xorg-libxfixes xorg-mesa xorg-glu alsa-lib dbus icu libjpeg-turbo libmng libtiff openssl sqlite cups gtk2 gstreamer-plugins-base postgresql pulseaudio unixodbc
+# Packager: fanch at nutyx dot org
+# Depends on:  alsa-lib atk cairo cups dbus gdk-pixbuf glib gtk2 gstreamer-plugins-base icu libjpeg-turbo libmng libtiff openssl pango postgresql pulseaudio sqlite unixodbc xorg-fontconfig xorg-glu xorg-libsm xorg-libxcursor xorg-libxfixes xorg-libxrandr xorg-libxi xorg-libxinerama xorg-libxv xorg-mesa                 
 
 name=qt4
 version=4.8.7
-release=6
-
+release=1
 _name=qt-everywhere-opensource-src-${version}
-
 source=(http://download.qt-project.org/official_releases/qt/${version%.*}/$version/${_name}.tar.gz)
 
 build() {
@@ -18,8 +16,7 @@ QT4DIR=$QT4PREFIX
 QT4BINDIR=$QT4PREFIX/lib/qt4/bin
 
 cd ${_name}
-
-     ./configure -prefix    $QT4PREFIX           \
+CXX="g++ -std=c++98" ./configure -prefix    $QT4PREFIX           \
             -bindir         $QT4BINDIR           \
             -plugindir      /usr/lib/qt4/plugins \
             -importdir      /usr/lib/qt4/imports \

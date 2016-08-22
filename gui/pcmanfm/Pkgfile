@@ -1,0 +1,18 @@
+# Description: Contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing.
+# URL: http://pcmanfm.sourceforge.net/
+# Packager: fanch at nutyx dot org
+# Depends on: libfm lxde-menu-data
+
+
+name=pcmanfm
+version=1.2.4
+release=1
+
+source=(http://downloads.sourceforge.net/${name}/${name}-$version.tar.xz)
+build () {
+cd $name-$version
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make DESTDIR=$PKG install
+sed -i 's/System;//' $PKG/usr/share/applications/pcmanfm.desktop
+}

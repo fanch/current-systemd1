@@ -1,14 +1,13 @@
-# Description: library for the manipulation of pixels
+# Description: Library for the manipulation of pixels.
 # URL: http://xorg.freedesktop.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libpng 
+
 _name=pixman
-
 name=xorg-pixman
-version=0.32.6
+version=0.34.0
 release=1
-
-source=(http://mirror.switch.ch/ftp/mirror/X11/pub/individual/lib/${_name}-$version.tar.bz2)
+source=(http://ftp.x.org/pub/individual//lib/${_name}-$version.tar.bz2)
 
 build() {
 cd ${_name}-$version

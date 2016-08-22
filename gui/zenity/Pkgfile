@@ -1,7 +1,6 @@
 # Description: Display graphical dialog boxes from shell scripts. 
 # URL: http://www.gnome.org/
-# Maintainer: git.gnome.org/brownse/yelp/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: itstool gtk3 libnotify yelp-tools
 
 name=zenity

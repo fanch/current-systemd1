@@ -1,12 +1,11 @@
-# Description: Three-D Athena Widgets toolkit
-# URL: URL: http://directory.fsf.org/project/xaw3d/
-# Packager:   pierre at nutyx dot org
+# Description: Three-D Athena Widgets toolkit.
+# URL: http://directory.fsf.org/project/xaw3d/
+# Packager: fanch at nutyx dot org
 # Depends on: xorg-proto xorg-libxmu xorg-util-macros 
 
 name=xorg-libxaw3d
 version=1.6.2
 release=1
-
 source=(http://xorg.freedesktop.org/archive/individual/lib/libXaw3d-$version.tar.bz2)
 
 build() {

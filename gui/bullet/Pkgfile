@@ -1,16 +1,16 @@
 # Description: Continuous Collision Detection and Physics Library.
 # URL: http://www.bulletphysics.com/
-# Maintainer: NuTyX core team
+# Packager: fanch at nutyx dot org
 # Depends on: cmake freeglut
 
 name=bullet
-version=2.83.6
+version=2.83.7
 release=1
+PKGMK_KEEP_SOURCES="no"
 source=(https://github.com/bulletphysics/bullet3/archive/${version}.tar.gz)
 
 build() {
 	cd ${name}3-$version
-
 	cmake \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DBUILD_SHARED_LIBS=ON \
@@ -18,8 +18,6 @@ build() {
 		-DBUILD_DEMOS=OFF \
 		-DINSTALL_LIBS=ON \
 		-DINSTALL_EXTRA_LIBS=ON .
-
 	make
 	make DESTDIR=$PKG install
-
 }

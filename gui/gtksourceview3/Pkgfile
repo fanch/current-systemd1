@@ -1,11 +1,10 @@
-# Description: Syntax highlighting for the GtkTextView widget
+# Description: Syntax highlighting for the GtkTextView widget.
 # URL: http://mail.gnome.org/mailman/listinfo/gnome-devtools
-# Maintainer: NuTyX GNOME team
-# Packager: thierryn1 at hispeed dot ch
-# Depends on: gtk3,libxml2
+# Packager: fanch at nutyx dot org
+# Depends on: gtk3 libxml2
 
 name=gtksourceview3
-version=3.20.1
+version=3.20.4
 release=1
 _name=gtksourceview
 source=(http://download.gnome.org/sources/${_name}/${version:0:4}/${_name}-$version.tar.xz)

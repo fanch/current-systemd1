@@ -1,7 +1,7 @@
-# Description: A DLNA/UPnP-AV Media server (aka ReadyDLNA)
+# Description: A DLNA/UPnP-AV Media server (aka ReadyDLNA).
 # URL: URL: http://minidlna.sourceforge.net/
-# Packager: tnut at nutyx dot org
-# Depends on: libexif libjpeg-turbo libid3tag flac libvorbis ffmpeg sqlite 
+# Packager: fanch at nutyx dot org
+# Depends on: flac ffmpeg libexif libid3tag libjpeg-turbo libvorbis sqlite  
 
 name=minidlna
 version=1.1.5
@@ -40,5 +40,4 @@ build() {
     cd $PKG/etc/rc.d/rc${i}.d
     ln -s ../init.d/minidlna S90minidlna
  done
-
 }

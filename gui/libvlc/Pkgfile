@@ -1,24 +1,25 @@
-# Description: Library from vlc
+# Description: Library from vlc.
 # URL:  http://www.slackware.com/~alien/slackbuilds/vlc/
-# Packager: tnut at nutyx dot org
-# Depends on: glib dbus libidn alsa-lib libmad
+# Packager: fanch at nutyx dot org
+# Depends on: glib dbus libidn alsa-lib libmad libva
 
 name=libvlc
-version=2.2.2
+version=2.2.4
 release=1
-
-source=( http://download.videolan.org/pub/videolan/vlc/$version/vlc-$version.tar.xz)
+source=(http://get.videolan.org/vlc/$version/vlc-$version.tar.xz vlc-2.2.4-ffmpeg3-1.patch vlc-2.2.4-gcc6_fixes-1.patch)
 	
 build() {
-
 cd vlc-$version
-
+sed -i '/seems to be moved/s/^/#/' autotools/ltmain.sh
+patch -Np1 -i ../vlc-2.2.4-ffmpeg3-1.patch    
+patch -Np1 -i ../vlc-2.2.4-gcc6_fixes-1.patch 
+CFLAGS="-DLUA_COMPAT_5_1" \
 ./configure --prefix=/usr \
 --disable-swscale \
+--disable-atmo \
 --disable-lua \
 --disable-a52 \
 --disable-avcodec
-
 make
 make DESTDIR=$PKG install
 rm -r $PKG/usr/{lib/vlc,share,bin}

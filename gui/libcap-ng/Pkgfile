@@ -1,13 +1,11 @@
 # Description:A library making programming with POSIX capabilities easier than traditional libcap.
 # URL: http://people.redhat.com/sgrubb/libcap-ng/
-# Maintainer: http://linuxfromscratch.org/
-# Packager: thierryn1 at hispeed dot ch
+# Packager: fanch at nutyx dot org
 # Depends on: glibc
 
 name=libcap-ng
-version=0.7.7
+version=0.7.8
 release=1
-
 source=(http://people.redhat.com/sgrubb/$name/$name-$version.tar.gz)
 
 build() {

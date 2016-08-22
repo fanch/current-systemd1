@@ -1,18 +1,15 @@
-# Description: GStreamer Multimedia Framework Base Plugins
+# Description: GStreamer Multimedia Framework Base Plugins.
 # URL: http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
-# Packager: pierre at nutyx dot org
-# Depends on: gstreamer alsa-lib pango cdparanoia libogg libtheora libvorbis xorg-libxv xorg-libxcursor xorg-libxdamage xorg-libxrandr xorg-libxinerama 
+# Packager: fanch at nutyx dot org
+# Depends on: alsa-lib cdparanoia gstreamer libogg libtheora libvorbis pango  xorg-libxcursor xorg-libxdamage xorg-libxrandr xorg-libxinerama xorg-libxv
 
 name=gstreamer-plugins-base
 version=0.10.36
 release=1
-
-source=(http://ftp.gnome.org/pub/gnome/sources/gst-plugins-base/${version%.*}/gst-plugins-base-$version.tar.xz
-	http://www.linuxfromscratch.org/patches/downloads/gst-plugins-base/gst-plugins-base-0.10.36-gcc_4_9_0_i686-1.patch)
+source=(http://ftp.gnome.org/pub/gnome/sources/gst-plugins-base/${version%.*}/gst-plugins-base-$version.tar.xz gst-plugins-base-0.10.36-gcc_4_9_0_i686-1.patch)
 
 build() {
 cd gst-plugins-base-$version
-
 [ "`uname -m`" == "i686" ] && patch -Np1 -i ../gst-plugins-base-0.10.36-gcc_4_9_0_i686-1.patch
 ./configure --prefix=/usr
 make

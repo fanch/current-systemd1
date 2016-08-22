@@ -1,15 +1,15 @@
-# Description: Python CUPS Bindings
+# Description: Python CUPS Bindings.
 # URL: http://cyberelk.net/tim/software/pycups/
-# Packager: alienus at nutyx dot org, tnut at nutyx dot org
-# Depends on: cups python 
+# Packager: fanch at nutyx dot org
+# Depends on: cups python python3
+
 name=python-cups
 version=1.9.73
 release=1
-
-source=(
-http://cyberelk.net/tim/data/pycups/pycups-$version.tar.bz2)
+source=(http://cyberelk.net/tim/data/pycups/pycups-$version.tar.bz2)
 
 build() {
     cd pycups-$version
     python2 setup.py install --prefix=/usr --root=$PKG
+    python3 setup.py install --prefix=/usr --root=$PKG
 }

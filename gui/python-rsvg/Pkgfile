@@ -1,15 +1,14 @@
-# Description: connector python for the library librsvg
+# Description: Connector python for the library librsvg.
 # URL: http://www.gnome.org
-# Packager: pierre at nutyx dot org
-# Depends on: python-gtk librsvg 
+# Packager: fanch at nutyx dot org
+# Depends on: librsvg python-gtk
 
 _name=gnome-python-desktop
-
 name=python-rsvg
 version=2.32.0
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/${_name}/${version%.*}/${_name}-$version.tar.bz2)
+
 build() {
 cd ${_name}-$version
 ./configure --prefix=/usr

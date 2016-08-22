@@ -1,0 +1,21 @@
+# Description: Graphviz is open source graph visualization software.
+# URL: http://www.graphviz.org
+# Packager: fanch at nutyx dot com
+# Depends on:  freetype   freeglut gdk-pixbuf ghostscript gtk2 guile libglade libjpeg-turbo libpng lua openjdk pango python qt4 ruby swig tcl tk xorg xorg-fontconfig
+
+name=graphviz
+version=2.38.0
+release=1
+source=(http://www.graphviz.org/pub/graphviz/stable/SOURCES/$name-$version.tar.gz  graphviz-2.38.0-consolidated_fixes-1.patch)
+
+build () {
+cd $name-$version
+patch -Np1 -i ../graphviz-2.38.0-consolidated_fixes-1.patch 
+autoreconf                               
+./configure --prefix=/usr --disable-php  
+make	
+make DESTDIR=$PKG install	
+install -v -m755 -d $PKG/usr/share/doc/$name-$version
+ln -v -s $PKG/usr/share/graphviz/doc \
+         $PKG/usr/share/doc/$name-$version
+}

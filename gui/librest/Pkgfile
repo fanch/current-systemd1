@@ -1,20 +1,18 @@
-# Description: Gives more easily access to internet services which says be "RESTful".
+# Description: A helper library for RESTful services.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
-# Depends on: libsoup gobject-introspection 
+# Packager: fanch at nutyx dot org
+# Depends on: gobject-introspection libsoup 
 
 name=librest
-version=0.7.93
-release=2
-
+version=0.8.0
+release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/rest/${version%.*}/rest-$version.tar.xz)
 
 build() {
 cd rest-$version
-./configure \
-    --prefix=/usr \
-    --sysconfdir=/etc \
-    --with-ca-certificates=/etc/ssl/certs
+sed -i "/seems to be moved/s/^/#/" build/ltmain.sh 
+./configure --prefix=/usr \
+--with-ca-certificates=path
 make
 make DESTDIR=$PKG install
 }

@@ -1,12 +1,11 @@
-# Description: XCB cursor library
-# URL: http://cgit.freedesktop.org/xcb/util-cursor:
-# Packager: pierre at nutyx dot org
+# Description: XCB cursor library.
+# URL: http://cgit.freedesktop.org/xcb/util-cursor
+# Packager: fanch at nutyx dot org
 # Depends on: libxcb  xcb-util-renderutil xcb-util-image
 
 name=xcb-util-cursor
-version=0.1.2
+version=0.1.3
 release=1
-
 source=(http://xcb.freedesktop.org/dist/xcb-util-cursor-$version.tar.bz2)
 
 build() {

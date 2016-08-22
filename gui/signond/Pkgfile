@@ -1,0 +1,16 @@
+# Description : A D-Bus service which performs user authentication on behalf of its clients.
+# URL : https://gitlab.com/accounts-sso/signond/
+# Packager : fanch at nutyx dot org
+# Depends on :   doxygen  dejavu-ttf freefont-ttf graphviz libproxy noto-fonts qt5 ttf-liberation
+
+name=signond
+version=8.59
+release=1
+source=(https://gitlab.com/accounts-sso/signond/repository/archive.tar.bz2)
+
+build() {
+cd $name*
+qmake-qt5 CONFIG+=coverage PREFIX=/usr LIBDIR=/usr/lib
+make
+make INSTALL_ROOT=$PKG install 
+}

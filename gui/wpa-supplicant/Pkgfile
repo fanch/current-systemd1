@@ -1,7 +1,7 @@
-# Description: A utility providing key negotiation for WPA wireless networks
+# Description: A utility providing key negotiation for WPA wireless networks.
 # URL: http://hostap.epitest.fi/wpa_supplicant
-# Packager: pierre at nutyx dot org
-# Depends on: libnl dbus libxml2 
+# Packager: fanch at nutyx dot org
+# Depends on: dbus libnl libxml2 
 
 name=wpa-supplicant
 version=2.5

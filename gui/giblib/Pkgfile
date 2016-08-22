@@ -1,6 +1,6 @@
-# Description: A library that feh uses as a wrapper to imlib2
+# Description: A library that feh uses as a wrapper to imlib2.
 # URL: http://www.linuxbrit.co.uk/giblib
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: imlib2 freetype 
 
 name=giblib

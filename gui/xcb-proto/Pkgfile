@@ -1,19 +1,20 @@
-# Description: XCB X protocol descriptions
+# Description: XCB X protocol descriptions.
 # URL: http://xcb.freedesktop.org
-# Packager: pierre at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: python 
 PKGMK_GROUPS=()
+
 name=xcb-proto
-version=1.11
+version=1.12
 release=1
 
-source=(http://xcb.freedesktop.org/dist/xcb-proto-$version.tar.bz2)
+source=(http://xcb.freedesktop.org/dist/xcb-proto-$version.tar.bz2 xcb-proto-1.12-python3-1.patch xcb-proto-1.12-schema-1.patch)
 
 build() {
 	cd xcb-proto-$version
-
+	patch -Np1 -i ../xcb-proto-1.12-schema-1.patch
+	patch -Np1 -i ../xcb-proto-1.12-python3-1.patch
 	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
-
 	make
 	make DESTDIR=$PKG install
 }

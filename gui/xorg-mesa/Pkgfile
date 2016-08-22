@@ -1,17 +1,19 @@
 # Description: Mesa is an OpenGL compatible 3D graphics library.
 # URL: http://www.xorg-mesa3d.org
-# Packagers: pierre at nutyx dot org, tnut at nutyx dot org
+# Packagers: fanch at nutyx dot org
 # Depends on: pkg-config libtool wayland xorg-libx11 xorg-libdrm xorg-libxext xorg-libxdamage expat llvm elfutils xorg-libxshmfence 
 
 name=xorg-mesa
-version=11.2.1
+version=12.0.1
 release=1
+source=(ftp://ftp.freedesktop.org/pub/mesa/${version}/mesa-$version.tar.xz mesa-$version-add_xdemos-1.patch)
 
-source=(ftp://ftp.freedesktop.org/pub/mesa/${version}/mesa-$version.tar.xz
-	http://www.linuxfromscratch.org/patches/downloads/mesa/mesa-$version-add_xdemos-1.patch)
 build() {
 cd mesa-$version
 patch -Np1 -i ../mesa-$version-add_xdemos-1.patch
+GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast,swr" 
+sed -i "/pthread-stubs/d" configure.ac   
+sed -i "/seems to be moved/s/^/: #/" bin/ltmain.sh   
 ./autogen.sh CFLAGS='-O2' CXXFLAGS='-O2'    \
 --prefix=/usr                  \
 --sysconfdir=/etc              \

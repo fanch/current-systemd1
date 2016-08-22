@@ -1,21 +1,17 @@
 # Description: Libraries used for creating graphical user interfaces for applications.
 # URL: http://www.gtk.org/
-# Packager: pierre at nutyx dot org
-# Depends on: adwaita-icon-theme libepoxy xorg-libxinerama,xorg-libxrandr,xorg-libxcursor,at-spi2-atk,cups,colord,xorg-libxi,atk,cairo,pango,pangox-compat,gdk-pixbuf,gtk-update-icon-cache
-run=(adwaita-icon-theme)
+# Packager: fanch at nutyx dot org
+# Depends on: adwaita-icon-theme atk at-spi2-atk cairo colord cups gdk-pixbuf gtk-update-icon-cache libepoxy pango pangox-compat xorg-libxcursor xorg-libxi xorg-libxinerama xorg-libxrandr           
 
 name=gtk3
-version=3.20.3
+version=3.20.8
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version%.*}/gtk+-$version.tar.xz)
 
 build() {
 cd gtk+-$version
 ./configure --prefix=/usr \
 --sysconfdir=/etc         \
---mandir=/usr/share/man   \
---infodir=/usr/share/info \
 --enable-broadway-backend \
 --enable-x11-backend      \
 --disable-wayland-backend
@@ -25,8 +21,16 @@ make DESTDIR=$PKG install
 rm -r $PKG/usr/share/gtk-doc
 cat > $PKG/etc/gtk-3.0/settings.ini << "EOF"
 [Settings]
+[Settings]
 gtk-theme-name = Adwaita
-gtk-icon-theme-name = gnome
+gtk-icon-theme-name = oxygen
+gtk-font-name = DejaVu Sans 12
+gtk-cursor-theme-size = 18
+gtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ
+gtk-xft-antialias = 1
+gtk-xft-hinting = 1
+gtk-xft-hintstyle = hintslight
+gtk-xft-rgba = rgb
 gtk-cursor-theme-name = Adwaita
 EOF
 # Empaqueté ds gtk-update-icon-cache

@@ -1,13 +1,11 @@
-# Description: oxygen-gtk2, theme Oxygen for applications in gtk2
+# Description: oxygen-gtk2, theme Oxygen for applications in gtk2.
 # URL: https://projects.kde.org/projects/playground/artwork/oxygen-gtk/
-# Packager: pierre at nutyx dot org
-# Depends on: cmake gtk2 dbus-glib cairo
-
+# Packager: fanch at nutyx dot org
+# Depends on: cairo cmake dbus-glib gtk2
 
 name=oxygen-gtk2
 version=1.4.6
 release=1
-
 source=(http://download.kde.org/stable/oxygen-gtk2/$version/src/$name-$version.tar.bz2)
 
 build() {

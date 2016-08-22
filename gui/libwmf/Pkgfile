@@ -1,14 +1,13 @@
-# Description: A library for reading vector images in Microsoft's native Windows Metafile Format (WMF)
-# URL: URL: http://wvware.sourceforge.net/libwmf.html
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: gsfonts libjpeg-turbo xorg-libx11 gdk-pixbuf gtk2 xorg-libxt
+# Description: A library for reading vector images in Microsoft's native Windows Metafile Format (WMF).
+# URL: http://wvware.sourceforge.net/libwmf.html
+# Packager: fanch at nutyx dot org
+# Depends on: gdk-pixbuf gsfonts gtk2 libjpeg-turbo xorg-libx11 xorg-libxt
+
 name=libwmf
 version=0.2.8.4
 release=1
 
-source=(
-http://downloads.sourceforge.net/sourceforge/wvware/$name-$version.tar.gz
+source=(http://downloads.sourceforge.net/sourceforge/wvware/$name-$version.tar.gz
 libwmf.0.2.8.4-libpng-1.5.patch
 libwmf.0.2.8.4-useafterfree.patch)
 

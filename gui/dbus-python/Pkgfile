@@ -1,15 +1,12 @@
-# Description: Python bindings for DBUS
+# Description: Python bindings for DBUS.
 # URL: http://dbus.freedesktop.org/
-# Packager: pierre at nutyx dot org
-# Depends on: python python3 dbus-glib 
-run=( python python3 )
+# Packager: fanch at nutyx dot org
+# Depends on: dbus-glib python python3
 
 name=dbus-python
 version=1.2.4
 release=1
-
-source=( http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz\
-	)
+source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version

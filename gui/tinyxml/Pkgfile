@@ -1,6 +1,5 @@
-# Description: A simple, small, minimal, C++ XML parser
+# Description: A simple, small, minimal, C++ XML parser.
 # URL:         http://www.grinninglizard.com/tinyxml/
-# Maintainer:  Thomas Penteker, tek at serverop dot de
 # Packager:    fanch at nutyx dot org
 
 name=tinyxml

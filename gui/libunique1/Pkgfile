@@ -1,20 +1,18 @@
 # Description: The libunique package contains a library for writing single instance applications.
 # URL: http://live.gnome.org/LibUnique
-# Packager: pierre at nutyx dot org , tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: gtk2
 
 _name=libunique
-
 name=libunique1
 version=1.1.6
-release=2
-
-source=(http://ftp.gnome.org/pub/gnome/sources/${_name}/${version%.*}/${_name}-$version.tar.bz2
-	http://www.linuxfromscratch.org/patches/blfs/svn/libunique-$version-upstream_fixes-1.patch)
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/${_name}/${version%.*}/${_name}-$version.tar.bz2 unique-gdbus.patch remove_G_CONST_RETURN.patch)
 
 build() {
 cd ${_name}-$version
-patch -Np1 -i ../libunique-$version-upstream_fixes-1.patch
+patch -Np1 -i ${SRC}/unique-gdbus.patch
+patch -Np1 -i ${SRC}/remove_G_CONST_RETURN.patch
 autoreconf -fi
 ./configure --prefix=/usr --disable-static \
 --disable-dbus

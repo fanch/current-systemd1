@@ -1,12 +1,11 @@
-# Description: Telepathy framework logging daemon
+# Description: Telepathy framework logging daemon.
 # URL: http://telepathy.freedesktop.org/
-# Packager: pierre at nutyx dot org
-# Depends on: intltool sqlite telepathy-glib gobject-introspection 
+# Packager: fanch at nutyx dot org
+# Depends on: intltool gobject-introspection sqlite telepathy-glib
 
 name=telepathy-logger
 version=0.8.2
 release=1
-
 source=(http://${name%-*}.freedesktop.org/releases/$name/$name-$version.tar.bz2)
 
 build() {

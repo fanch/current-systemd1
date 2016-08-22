@@ -1,17 +1,18 @@
-# Description: SMB Fileserver and AD Domain server
+# Description: SMB Fileserver and AD Domain server.
 # URL: http://www.samba.org
 # Packager: fanch at nutyx dot org
-# Depends on: talloc tevent avahi gnutls libgpg-error popt python cups kerberos libcap tdb openldap libxslt
+# Depends on: avahi cups gnutls kerberos libcap libgpg-error libxslt openldap popt python talloc tdb tevent      
 
 name=samba
 version=4.4.5
 release=1
-
-source=( http://ftp.samba.org/pub/samba/stable/$name-$version.tar.gz)
+source=(http://ftp.samba.org/pub/samba/stable/$name-$version.tar.gz)
 
 build() {
-source /etc/blfs-systemd-units
-        wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+    source /etc/blfs-systemd-units
+    wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+    tar xvf $scripts-$scriptsversion.tar.bz2
+    
 if [ "`uname -m`" == "x86_64" ]; then
         LIB=lib64
 else
@@ -26,15 +27,9 @@ cd $name-$version
     --localstatedir=/var                \
     --with-piddir=/run/samba            \
     --with-pammodulesdir=/lib/security  \
-    --without-ad-dc                     \
-    --enable-fhs                        \
-    --without-systemd                   \
-    --bundled-libraries=!tdb,!talloc,!pytalloc-util,!tevent,!popt,!ldb
+    --enable-fhs                        
 
 make
-
-sed -i "/samba3.blackbox.failure.failure/i \^samba3.raw.eas" selftest/knownfail
-
 make DESTDIR=$PKG install
 
 install -d $PKG/$LIB

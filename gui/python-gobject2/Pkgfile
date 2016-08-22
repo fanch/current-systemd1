@@ -1,17 +1,18 @@
 # Description: provides the links of Python 2 for the class GObject of GLib.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: python-cairo xorg-libxxf86vm 
 
 name=python-gobject2
 version=2.28.6
 release=1
-
-source=(http://ftp.gnome.org/pub/gnome/sources/pygobject/${version%.*}/pygobject-$version.tar.xz)
+source=(http://ftp.gnome.org/pub/gnome/sources/pygobject/${version%.*}/pygobject-$version.tar.xz pygobject-2.28.6-fixes-1.patch)
 	
 build() {
 cd pygobject-$version
+patch -Np1 -i ../pygobject-2.28.6-fixes-1.patch   
+sed -i "/seems to be moved/s/^/#/" ltmain.sh
 ./configure --prefix=/usr --disable-introspection
 make
 make DESTDIR=$PKG install
-}  
+}    

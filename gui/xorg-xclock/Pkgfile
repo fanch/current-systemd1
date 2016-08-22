@@ -1,9 +1,9 @@
-# Description: clock analog for X mainly pout tester all X
+# Description: clock analog for X mainly pout tester all X.
 # URL: http://xorg.freedesktop.org 
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: xorg-libxft xorg-server 
-_name=xclock
 
+_name=xclock
 name=xorg-xclock
 version=1.0.7
 release=1

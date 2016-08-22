@@ -1,13 +1,12 @@
-# Description: Farstream (formerly Farsight) - Audio/Video Communications Framework
+# Description: Farstream (formerly Farsight) - Audio/Video Communications Framework.
 # URL:   http://freedesktop.org/software/farstream
-# Packager: pierre at nutyx dot org
-# Depends on: gstreamer1-plugins-base libnice gobject-introspection 
+# Packager: fanch at nutyx dot org
+# Depends on: gobject-introspection gstreamer1-plugins-base libnice 
 
 name=farstream
-version=0.2.7
+version=0.2.8
 release=1
-
-source=( http://freedesktop.org/software/farstream/releases/farstream/farstream-$version.tar.gz)
+source=(http://freedesktop.org/software/farstream/releases/farstream/farstream-$version.tar.gz)
 
 build() {
 cd $name-$version

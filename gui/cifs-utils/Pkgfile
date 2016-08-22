@@ -1,18 +1,16 @@
-# Description: CIFS filesystem user-space tools
+# Description: CIFS filesystem user-space tools.
 # URL: http://www.samba.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: samba 
 
 name=cifs-utils
-version=6.4
+version=6.5
 release=1
-
 source=( http://ftp.samba.org/pub/linux-cifs/$name/$name-$version.tar.bz2)
-
 
 build() {
 cd $name-$version
-./configure --prefix=/usr --disable-systemd
+./configure --prefix=/usr --disable-pam
 make
 make DESTDIR=$PKG install
 }

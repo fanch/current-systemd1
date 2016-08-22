@@ -1,0 +1,253 @@
+Submitted By:            Bruce Dubbs <bdubbs at linuxfromscratch dot org>
+Date:                    2016-06-07
+Initial Package Version: 2.28.0
+Upstream Status:         Unknown
+Origin:                  https://github.com/elkrejzi/system-management/blob/master/patches/graphviz-qt5.patch
+Description:             Fixes use of Qt5 and combines other fixes for ruby-2.2 and
+                         ghostscript-9.19
+
+diff -Naur graphviz-2.38.0.orig/cmd/gvedit/csettings.cpp graphviz-2.38.0/cmd/gvedit/csettings.cpp
+--- graphviz-2.38.0.orig/cmd/gvedit/csettings.cpp	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/cmd/gvedit/csettings.cpp	2016-06-07 20:34:01.736331394 -0500
+@@ -16,7 +16,7 @@
+ #include "csettings.h"
+ #include "qmessagebox.h"
+ #include "qfiledialog.h"
+-#include <QtGui>
++#include <QtWidgets>
+ #include <qfile.h>
+ #include "mdichild.h"
+ #include "string.h"
+@@ -374,7 +374,7 @@
+ 		QString msg ("Output written to ");
+ 		msg.append(fileName);
+ 		msg.append("\n");
+-		errorPipe((char *) msg.toAscii().constData());
++		errorPipe((char *) msg.toLatin1().constData());
+ 	    }
+ 	}
+ 
+diff -Naur graphviz-2.38.0.orig/cmd/gvedit/imageviewer.h graphviz-2.38.0/cmd/gvedit/imageviewer.h
+--- graphviz-2.38.0.orig/cmd/gvedit/imageviewer.h	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/cmd/gvedit/imageviewer.h	2016-06-07 20:34:01.736331394 -0500
+@@ -15,7 +15,7 @@
+ 
+ #ifndef IMAGEVIEWER_H
+ #define IMAGEVIEWER_H
+-#include <QtGui>
++#include <QtWidgets>
+ #include <QMainWindow>
+ #include <QPrinter>
+ 
+diff -Naur graphviz-2.38.0.orig/cmd/gvedit/mainwindow.cpp graphviz-2.38.0/cmd/gvedit/mainwindow.cpp
+--- graphviz-2.38.0.orig/cmd/gvedit/mainwindow.cpp	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/cmd/gvedit/mainwindow.cpp	2016-06-07 20:34:01.736331394 -0500
+@@ -11,7 +11,7 @@
+  * Contributors: See CVS logs. Details at http://www.graphviz.org/
+  *************************************************************************/
+ 
+-#include <QtGui>
++#include <QtWidgets>
+ #include <qframe.h>
+ #include "mainwindow.h"
+ #include "mdichild.h"
+@@ -289,7 +289,7 @@
+ 	msg.append("working on ");
+ 	msg.append(activeMdiChild()->currentFile());
+ 	msg.append("\n");
+-	errorPipe((char *) msg.toAscii().constData());
++	errorPipe((char *) msg.toLatin1().constData());
+ 	prevChild = activeMdiChild();
+     }
+ }
+diff -Naur graphviz-2.38.0.orig/cmd/gvedit/mdichild.cpp graphviz-2.38.0/cmd/gvedit/mdichild.cpp
+--- graphviz-2.38.0.orig/cmd/gvedit/mdichild.cpp	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/cmd/gvedit/mdichild.cpp	2016-06-07 20:34:01.736331394 -0500
+@@ -12,7 +12,7 @@
+  *************************************************************************/
+ 
+ 
+-#include <QtGui>
++#include <QtWidgets>
+ 
+ #include "mdichild.h"
+ #include "mainwindow.h"
+diff -Naur graphviz-2.38.0.orig/cmd/gvedit/ui_settings.h graphviz-2.38.0/cmd/gvedit/ui_settings.h
+--- graphviz-2.38.0.orig/cmd/gvedit/ui_settings.h	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/cmd/gvedit/ui_settings.h	2016-06-07 20:34:01.737331361 -0500
+@@ -10,22 +10,22 @@
+ #ifndef UI_SETTINGS_H
+ #define UI_SETTINGS_H
+ 
+-#include <QtCore/QVariant>
+-#include <QtGui/QAction>
+-#include <QtGui/QApplication>
+-#include <QtGui/QButtonGroup>
+-#include <QtGui/QComboBox>
+-#include <QtGui/QDialog>
+-#include <QtGui/QFrame>
+-#include <QtGui/QHBoxLayout>
+-#include <QtGui/QHeaderView>
+-#include <QtGui/QLabel>
+-#include <QtGui/QLineEdit>
+-#include <QtGui/QPushButton>
+-#include <QtGui/QSpacerItem>
+-#include <QtGui/QTextEdit>
+-#include <QtGui/QVBoxLayout>
+-#include <QtGui/QWidget>
++#include <QVariant>
++#include <QAction>
++#include <QApplication>
++#include <QButtonGroup>
++#include <QComboBox>
++#include <QDialog>
++#include <QFrame>
++#include <QHBoxLayout>
++#include <QHeaderView>
++#include <QLabel>
++#include <QLineEdit>
++#include <QPushButton>
++#include <QSpacerItem>
++#include <QTextEdit>
++#include <QVBoxLayout>
++#include <QWidget>
+ 
+ QT_BEGIN_NAMESPACE
+ 
+@@ -343,49 +343,49 @@
+ 
+     void retranslateUi(QDialog *Dialog)
+     {
+-        Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", 0, QApplication::UnicodeUTF8));
+-        actionCSettingsOK->setText(QApplication::translate("Dialog", "CSettingsOK", 0, QApplication::UnicodeUTF8));
+-        label->setText(QApplication::translate("Dialog", "Layout Engine", 0, QApplication::UnicodeUTF8));
++        Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", 0));
++        actionCSettingsOK->setText(QApplication::translate("Dialog", "CSettingsOK", 0));
++        label->setText(QApplication::translate("Dialog", "Layout Engine", 0));
+         cbLayout->clear();
+         cbLayout->insertItems(0, QStringList()
+-         << QApplication::translate("Dialog", "dot", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "circo", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "fdp", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "neato", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "nop", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "nop1", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "nop2", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "osage", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "patchwork", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "sfdp", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "twopi", 0, QApplication::UnicodeUTF8)
++         << QApplication::translate("Dialog", "dot", 0)
++         << QApplication::translate("Dialog", "circo", 0)
++         << QApplication::translate("Dialog", "fdp", 0)
++         << QApplication::translate("Dialog", "neato", 0)
++         << QApplication::translate("Dialog", "nop", 0)
++         << QApplication::translate("Dialog", "nop1", 0)
++         << QApplication::translate("Dialog", "nop2", 0)
++         << QApplication::translate("Dialog", "osage", 0)
++         << QApplication::translate("Dialog", "patchwork", 0)
++         << QApplication::translate("Dialog", "sfdp", 0)
++         << QApplication::translate("Dialog", "twopi", 0)
+         );
+-        label_3->setText(QApplication::translate("Dialog", "Output File Type", 0, QApplication::UnicodeUTF8));
++        label_3->setText(QApplication::translate("Dialog", "Output File Type", 0));
+         cbExtension->clear();
+         cbExtension->insertItems(0, QStringList()
+-         << QApplication::translate("Dialog", "png", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "jpg", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "ps", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "dot", 0, QApplication::UnicodeUTF8)
++         << QApplication::translate("Dialog", "png", 0)
++         << QApplication::translate("Dialog", "jpg", 0)
++         << QApplication::translate("Dialog", "ps", 0)
++         << QApplication::translate("Dialog", "dot", 0)
+         );
+-        label_2->setText(QApplication::translate("Dialog", "Output File Name", 0, QApplication::UnicodeUTF8));
+-        pbOut->setText(QApplication::translate("Dialog", "...", 0, QApplication::UnicodeUTF8));
+-        label_5->setText(QApplication::translate("Dialog", "Scope", 0, QApplication::UnicodeUTF8));
++        label_2->setText(QApplication::translate("Dialog", "Output File Name", 0));
++        pbOut->setText(QApplication::translate("Dialog", "...", 0));
++        label_5->setText(QApplication::translate("Dialog", "Scope", 0));
+         cbScope->clear();
+         cbScope->insertItems(0, QStringList()
+-         << QApplication::translate("Dialog", "graph", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "node", 0, QApplication::UnicodeUTF8)
+-         << QApplication::translate("Dialog", "edge", 0, QApplication::UnicodeUTF8)
++         << QApplication::translate("Dialog", "graph", 0)
++         << QApplication::translate("Dialog", "node", 0)
++         << QApplication::translate("Dialog", "edge", 0)
+         );
+-        label_6->setText(QApplication::translate("Dialog", "Name", 0, QApplication::UnicodeUTF8));
+-        label_7->setText(QApplication::translate("Dialog", "Value", 0, QApplication::UnicodeUTF8));
+-        pbAdd->setText(QApplication::translate("Dialog", "Add", 0, QApplication::UnicodeUTF8));
+-        pbHelp->setText(QApplication::translate("Dialog", "Help", 0, QApplication::UnicodeUTF8));
+-        pbNew->setText(QApplication::translate("Dialog", "clear", 0, QApplication::UnicodeUTF8));
+-        pbOpen->setText(QApplication::translate("Dialog", "load", 0, QApplication::UnicodeUTF8));
+-        pbSave->setText(QApplication::translate("Dialog", "save", 0, QApplication::UnicodeUTF8));
+-        btnCancel->setText(QApplication::translate("Dialog", "Cancel", 0, QApplication::UnicodeUTF8));
+-        btnOK->setText(QApplication::translate("Dialog", "OK", 0, QApplication::UnicodeUTF8));
++        label_6->setText(QApplication::translate("Dialog", "Name", 0));
++        label_7->setText(QApplication::translate("Dialog", "Value", 0));
++        pbAdd->setText(QApplication::translate("Dialog", "Add", 0));
++        pbHelp->setText(QApplication::translate("Dialog", "Help", 0));
++        pbNew->setText(QApplication::translate("Dialog", "clear", 0));
++        pbOpen->setText(QApplication::translate("Dialog", "load", 0));
++        pbSave->setText(QApplication::translate("Dialog", "save", 0));
++        btnCancel->setText(QApplication::translate("Dialog", "Cancel", 0));
++        btnOK->setText(QApplication::translate("Dialog", "OK", 0));
+     } // retranslateUi
+ 
+ };
+diff -Naur graphviz-2.38.0.orig/configure.ac graphviz-2.38.0/configure.ac
+--- graphviz-2.38.0.orig/configure.ac	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/configure.ac	2016-06-07 20:34:01.737331361 -0500
+@@ -103,6 +103,8 @@
+ 
+ AC_ARG_VAR(LIBPOSTFIX, [subscript to lib, e.g. "/64" for "/usr/lib/64" on Solaris])
+ 
++CXXFLAGS="${CXXFLAGS} -fPIC"
++
+ if test -z "$LIBPOSTFIX"; then
+   case "${host_os}" in
+     *linux* )
+@@ -1570,7 +1572,7 @@
+           RUBY_INSTALL_DIR="`$RUBY $srcdir/config/config_ruby.rb vendorarchdir`"
+ 	fi
+       ],[
+-        PKG_CHECK_MODULES([RUBY], [ruby-1.9],[
++        PKG_CHECK_MODULES([RUBY], [ruby-2.2],[
+ 	  AC_CHECK_PROG(RUBY,ruby,ruby)
+           if test "x$RUBY" = "x"; then
+             use_ruby="No (ruby not available)"
+@@ -2613,10 +2615,10 @@
+   use_qt="No (disabled)"
+ else
+ 
+-  AC_CHECK_PROGS(QMAKE,qmake-qt4 qmake-qt3 qmake,false)
++  AC_CHECK_PROGS(QMAKE,qmake-qt5 qmake,false)
+   if test "$QMAKE" != "false"; then
+-    PKG_CHECK_MODULES(QTCORE, [QtCore],[
+-      PKG_CHECK_MODULES(QTGUI, [QtGui],[
++    PKG_CHECK_MODULES(QTCORE, [Qt5Core],[
++      PKG_CHECK_MODULES(QTGUI, [Qt5Widgets Qt5PrintSupport],[
+ 	use_qt="Yes"
+       ],[
+         use_qt="No (QtGui not available)"
+diff -Naur graphviz-2.38.0.orig/plugin/gs/gvloadimage_gs.c graphviz-2.38.0/plugin/gs/gvloadimage_gs.c
+--- graphviz-2.38.0.orig/plugin/gs/gvloadimage_gs.c	2014-04-13 15:40:25.000000000 -0500
++++ graphviz-2.38.0/plugin/gs/gvloadimage_gs.c	2016-06-07 20:33:43.166945152 -0500
+@@ -72,11 +72,11 @@
+ 
+     assert (err < 0);
+ 
+-    if (err >= e_VMerror) 
++    if (err >= gs_error_VMerror) 
+ 	errsrc = "PostScript Level 1"; 
+-    else if (err >= e_unregistered)
++    else if (err >= gs_error_unregistered)
+ 	errsrc = "PostScript Level 2";
+-    else if (err >= e_invalidid)
++    else if (err >= gs_error_invalidid)
+ 	errsrc = "DPS error";
+     else
+ 	errsrc = "Ghostscript internal error";

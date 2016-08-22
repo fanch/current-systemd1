@@ -1,12 +1,11 @@
-# Description: A Library for reading and editing the meta-data of several popular audio formats
+# Description: A Library for reading and editing the meta-data of several popular audio formats.
 # URL: http://developer.kde.org/~wheeler/taglib.html
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: cmake
 
 name=taglib
-version=1.10
+version=1.11
 release=1
-
 source=( https://taglib.github.io/releases/$name-$version.tar.gz)
 
 build() {
@@ -14,8 +13,9 @@ build() {
         mkdir build
         cd build
         cmake -DCMAKE_INSTALL_PREFIX=/usr \
-              -DCMAKE_BUILD_TYPE=Release  \
-                    ..
+      	      -DCMAKE_BUILD_TYPE=Release  \
+              -DBUILD_SHARED_LIBS=ON \
+              ..
         make
         make DESTDIR=$PKG install
 }

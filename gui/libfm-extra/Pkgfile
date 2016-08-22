@@ -1,9 +1,8 @@
+# Description: Contains a library and other files required by menu-cache-gen libexec of menu-cache.
 # URL: http://pcmanfm.sourceforge.net/
-# Maintainer: git.lxde.org/gitweb/?p=debian/libfm.git;a=summary
-# Packager: geantbrun at gmail dot com, tnut at nutyx dot org
-# Depends on: glib,intltool,perl-xml-parser
+# Packager: fanch at nutyx dot org
+# Depends on: glib intltool perl-xml-parser
 
-description="contains a library and other files required by menu-cache-gen libexec of menu-cache"
 name=libfm-extra
 _name=libfm
 version=1.2.4

@@ -1,9 +1,7 @@
-# Description: Ensemble d'icônes non évolutifs de différentes tailles et des thèmes. 
+# Description: GNOME icon theme. 
 # URL: http://www.gnome.org/
-# Maintainer: git.gnome.org/brownse/gnome-icon-theme/
-# Packager: thierryn1 at hispeed dot ch
-# Depends on: hicolor-icon-theme, gtk-update-icon-cache, icon-naming-utils, intltool
-# Run on: hicolor-icon-theme,gtk-update-icon-cache,icon-naming-utils
+# Packager: fanch at nutyx dot org
+# Depends on: gtk-update-icon-cache hicolor-icon-theme icon-naming-utils intltool   
 
 name=gnome-icon-theme
 version=3.12.0

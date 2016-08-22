@@ -1,10 +1,10 @@
-# Description: engine of made Web free for the browsers web version 3
+# Description: engine of made Web free for the browsers web version 3.
 # URL: http://webkitgtk.org/
-# Packager: pierre at nutyx dot org
-# Depends on: enchant cmake gstreamer1-plugins-base xorg-libxt  gtk2 gtk3 hunspell hyphen icu libgudev libsecret libsoup libwebp xorg-mesa ruby sqlite enchant geoclue gobject-introspection hicolor-icon-theme llvm harfbuzz gtk-doc libnotify
+# Packager: fanch at nutyx dot org
+# Depends on: cmake enchant geoclue gobject-introspection gstreamer1-plugins-base gtk2 gtk3 gtk-doc harfbuzz hicolor-icon-theme hunspell hyphen icu libgudev libnotify libsecret libsoup libwebp llvm ruby sqlite xorg-libxt xorg-mesa
 
 name=webkit2gtk3
-version=2.12.1
+version=2.12.3
 release=1
 
 source=(http://webkitgtk.org/releases/webkitgtk-$version.tar.xz)

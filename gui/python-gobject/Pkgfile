@@ -1,21 +1,25 @@
-# Description: provides the links of Python 2 for the class GObject of GLib.
+# Description: Python Bindings for GLib/GObject/GIO/GTK+.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
-# Depends on: python-cairo gobject-introspection xorg-libxxf86vm libffi 
+# Packager: fanch at nutyx dot org
+# Depends on: libffi python-cairo python3-cairo gobject-introspection xorg-libxxf86vm  
 
 name=python-gobject
-version=3.20.0
+version=3.20.1
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/pygobject/${version%.*}/pygobject-$version.tar.xz)
 
 build() {
 cd pygobject-$version
 mkdir python2
 pushd python2
-../configure --prefix=/usr \
---with-python=/usr/bin/python2
+../configure --prefix=/usr --with-python=/usr/bin/python2
 make
 popd
+mkdir python3 
+pushd python3 
+../configure --prefix=/usr --with-python=/usr/bin/python3 
+make 
+popd
 make DESTDIR=$PKG -C python2 install
+make DESTDIR=$PKG -C python3 install
 }

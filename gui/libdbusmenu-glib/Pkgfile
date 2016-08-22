@@ -1,13 +1,12 @@
-# Description: A library for passing menus over DBus
+# Description: A library for passing menus over DBus.
 # URL: https://launchpad.net/libdbusmenu
-# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
-# Depends on: python gobject-introspection gtk2 gtk3 glib vala gnome-doc-utils atk libepoxy json-glib
+# Packager: fanch at nutyx dot org
+# Depends on: atk glib json-glib gnome-doc-utils gobject-introspection gtk2 gtk3 libepoxy python vala
 
 name=libdbusmenu-glib
 _name=libdbusmenu
 release=1
 version=12.10.2
-
 source=(http://launchpad.net/dbusmenu/${version%.?}/${version}/+download/${_name}-${version}.tar.gz)
 
 build() {

@@ -1,0 +1,26 @@
+# Description: A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard.
+# URL: http://www.libsdl.org
+# Packager: fanch at nutyx dot org
+# Depends on: alsa-lib libxkbcommon xorg-libx11 xorg-libxcursor xorg-libxext xorg-libxinerama xorg-libxrandr xorg-libxrender xorg-mesa pulseaudio wayland  
+
+name=sdl2
+version=2.0.4
+release=1
+source=(http://www.libsdl.org/release/SDL2-$version.tar.gz)
+
+build() {
+  mkdir build
+  cd build
+  ../SDL2-$version/configure --prefix=/usr     \
+    			     --enable-sdl-dlopen  \
+                             --disable-arts  \
+                             --disable-esd  \
+                             --disable-nas \
+                             --enable-alsa  \
+                             --enable-pulseaudio-shared   \
+                             --disable-video-wayland  \
+                             --disable-rpath
+  make
+  make DESTDIR=$PKG install
+  install -Dm644 ../SDL2-$version/COPYING.txt $PKG/usr/share/licenses/$name/LICENSE
+}

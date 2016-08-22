@@ -1,17 +1,16 @@
-# Description: library http that was implemented in C
+# Description: library http that was implemented in C.
 # URL: library http that was implemented in C
-# Packager: pierre at nutyx dot org
-# Depends on: glib-networking libxml2 gobject-introspection vala sqlite 
+# Packager: fanch at nutyx dot org
+# Depends on: glib-networking gobject-introspection libxml2 sqlite vala
 
-run=( glib-networking )
 name=libsoup
-version=2.54.0
+version=2.54.1
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.xz)
 
 build() {
 cd $name-$version
+sed -i "/seems to be moved/s/^/#/" build-aux/ltmain.sh
 ./configure --prefix=/usr \
 --disable-static	
 make

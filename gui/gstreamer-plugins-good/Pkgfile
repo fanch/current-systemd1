@@ -1,12 +1,11 @@
-# Description: GStreamer Multimedia Framework good Plugins
+# Description: GStreamer Multimedia Framework good Plugins.
 # URL: http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
-# Packager: pierre at nutyx dot org
-# Depends on: gstreamer-plugins-base cairo flac libjpeg-turbo libpng xorg-libx11 libsoup speex aalib taglib libcdio 
+# Packager: fanch at nutyx dot org
+# Depends on: aalib  cairo flac gstreamer-plugins-base libcdio libjpeg-turbo libpng libsoup speex taglib xorg-libx11      
 
 name=gstreamer-plugins-good
 version=0.10.31
 release=1
-
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-$version.tar.xz)
 
 build() {

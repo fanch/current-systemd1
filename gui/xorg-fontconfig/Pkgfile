@@ -1,14 +1,13 @@
-# Description: fontconfig, library for access and the configuration of polices
+# Description: Fontconfig, library for access and the configuration of polices.
 # URL: http://xorg-fontconfig.org/wiki/
-# Packager: pierre at nutyx dot org
-# Depends on: freetype expat libpng 
+# Packager: fanch at nutyx dot org
+# Depends on: freetype 
+
 _name=fontconfig
-
 name=xorg-fontconfig
-version=2.11.1
+version=2.12.1
 release=1
-
-source=( http://fontconfig.org/release/${_name}-$version.tar.gz)
+source=(http://fontconfig.org/release/${_name}-$version.tar.gz)
 
 
 build() {
@@ -17,7 +16,8 @@ cd ${_name}-$version
 --sysconfdir=/etc \
 --localstatedir=/var \
 --docdir=/usr/share/doc/$name-$version \
---disable-docs --disable-static
+--disable-docs \
+--disable-static
 make
 make DESTDIR=$PKG install
 install -v -dm755 \

@@ -1,24 +1,22 @@
-# Description: The GTK+ update icon cache tool
+# Description: Libraries used for creating graphical user interfaces for applications.
 # URL: http://www.gtk.org/
-# Packager: pierre at nutyx dot org
-# Depends on: gdk-pixbuf glib atk pango cairo libffi libpng pcre
+# Packager: fanch at nutyx dot org
+# Depends on: at-spi2-atk cairo glib gdk-pixbuf gobject-introspection libepoxy pango
 
 name=gtk-update-icon-cache
-version=2.24.30
+version=3.20.8
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version%.*}/gtk+-$version.tar.xz)
 
 build() {
 cd gtk+-$version
-sed -i 's#.*@man_#man_#' docs/reference/gtk/Makefile.in
 ./configure --prefix=/usr \
---mandir=/usr/share/man \
---infodir=/usr/share/info \
---sysconfdir=/etc \
---with-xinput=yes 
-cd gtk
-make gtk-update-icon-cache
-mkdir -p $PKG/usr/{bin,share/man/man1}
-install -c gtk-update-icon-cache $PKG/usr/bin/gtk-update-icon-cache
+--sysconfdir=/etc         \
+--enable-broadway-backend \
+--enable-x11-backend      \
+--disable-wayland-backend
+make || make -j1
+install -D gtk/gtk-update-icon-cache $PKG/usr/bin/gtk-update-icon-cache
+install -Dm644 ../gtk-update-icon-cache.hook $PKG/usr/share/libalpm/hooks/gtk-update-icon-cache.hook
+install -D ../gtk-update-icon-cache.script $PKG/usr/share/libalpm/scripts/gtk-update-icon-cache
 }

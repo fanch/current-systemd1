@@ -1,3 +1,6 @@
-. lib/lsb/init-functions
-sed -i "s/^id:[3-5]/id:5/" etc/inittab
-log_success_msg2  "Init default set to 5 in the ${WARNING}/etc/inittab ${NORMAL}file"
+getent passwd lxdm > /dev/null 2>&1 && \
+    usermod -L -c 'Lightweight X11 Display Manager' -d /var/lib/lxdm -s /sbin/nologin lxdm > /dev/null 2>&1 || \
+    useradd -rM -c 'Lightweight X11 Display Manager' -d /var/lib/lxdm -s /sbin/nologin lxdm
+mkdir -p /var/lib/lxdm
+chown lxdm:lxdm /var/lib/lxdm
+chmod 700 /var/lib/lxdm

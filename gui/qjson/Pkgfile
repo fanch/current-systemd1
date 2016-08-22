@@ -1,14 +1,12 @@
-# Description: A qt-based library that maps JSON data to QVariant objects
+# Description: A qt-based library that maps JSON data to QVariant objects.
 # URL: http://qjson.sourceforge.net
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: qt4
-
 
 name=qjson
 version=0.8.1
 release=1
-
-source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2 )
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 
 build() {
 cd $name-$version

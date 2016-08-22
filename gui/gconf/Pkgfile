@@ -1,22 +1,20 @@
-# Description: A configuration database system used by many Gnome applications
+# Description: A configuration database system.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
-# Depends on: dbus-glib intltool libxml2 gobject-introspection gtk3 polkit 
+# Packager: fanch at nutyx dot org
+# Depends on: dbus-glib gobject-introspection gtk3 intltool libxml2 polkit   
 
 name=gconf
 version=3.2.6
-release=2
+release=1
 
 source=(http://ftp.gnome.org/pub/gnome/sources/GConf/${version%.*}/GConf-$version.tar.xz)
 
 build() {
 cd GConf-$version
 ./configure --prefix=/usr \
---sysconfdir=/etc \
---disable-static \
---libexecdir=/usr/lib/GConf \
---mandir=/usr/share/man \
---disable-orbit
+            --sysconfdir=/etc \
+            --disable-orbit \
+            --disable-static
 make 
 make DESTDIR=$PKG install
 ln -s gconf.xml.defaults $PKG/etc/gconf/gconf.xml.system

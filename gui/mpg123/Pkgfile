@@ -1,13 +1,13 @@
-# Description: The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix.
+# Description: Fastest MP3 decoder for Unix.
 # URL: http://mpg123.de/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: alsa-lib 
 
 name=mpg123
-version=1.23.3
+version=1.23.6
 release=1
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 
-source=( http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 build() {
 cd $name-$version
 ./configure --prefix=/usr --with-module-suffix=.so

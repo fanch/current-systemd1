@@ -1,12 +1,11 @@
-# Description : C++ library for interfacing with Echo Nest (builds the qt5 version)
+# Description : C++ library for interfacing with Echo Nest (builds the qt5 version).
 # URL : https://projects.kde.org/projects/playground/libs/libechonest
-# Packager : pierre at nutyx dot prg
+# Packager : fanch at nutyx dot org
 # Depends on : qt5
 
 name=libechonest
 version=2.3.1
 release=1
-
 source=(https://github.com/lfranchi/libechonest/archive/$version.tar.gz)
 
 build() {

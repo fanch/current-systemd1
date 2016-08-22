@@ -1,7 +1,6 @@
 # Description: Provides informations about LSB status (Linux Standards Base) of the distribution. 
 # URL: http://www.linuxbase.org/
-# Maintainer: Sven-Hendrik Haase
-# Packager: geantbrun at gmail dot com
+# Packager: fanch at nutyx dot org
 # Depends on: bash
 
 name=lsb-release

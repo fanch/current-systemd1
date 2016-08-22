@@ -1,15 +1,15 @@
 # Description: GStreamer Multimedia Framework Bad Plugins
 # URL: http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
-# Packager: pierre at nutyx dot org
-# Depends on: gstreamer-plugins-base faac faad2 libmms libpng libvpx xvid jasper 
+# Packager: fanch at nutyx dot org
+# Depends on: faac faad2 gstreamer-plugins-base jasper libmms libpng libvpx xvid  
+ 
 name=gstreamer-plugins-bad
 version=0.10.23
 release=1
-
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-$version.tar.bz2
 	$name-$version-compatibility-1.patch)
+	
 build() {
-
 cd gst-plugins*
 patch -Np1 -i ../$name-$version-compatibility-1.patch
 ./configure --prefix=/usr \

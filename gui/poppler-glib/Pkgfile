@@ -1,30 +1,29 @@
-# Description: PDF rendering library based on xpdf 3.0
-# URL: URL: http://poppler.freedesktop.org/
-# Packager: alienus at nutyx dot org
-# Depends on: poppler xorg-libxxf86vm libpng xorg-fontconfig libjpeg-turbo cairo libxml2 openjpeg lcms lcms2 glib 
+# Description: PDF rendering library based on xpdf 3.0.
+# URL: http://poppler.freedesktop.org/
+# Packager: fanch at nutyx dot org
+# Depends on: cairo glib lcms2 lcms libjpeg-turbo libpng libxml2 openjpeg poppler xorg-fontconfig xorg-libxxf86vm          
 
 name=poppler-glib
 release=1
-
 source=(http://poppler.freedesktop.org/poppler-$version.tar.xz)
 
 build() {
 cd poppler-$version
-
 ./configure --prefix=/usr      \
             --sysconfdir=/etc      \
-            --disable-static       \
             --disable-poppler-qt4  \
             --disable-poppler-qt5  \
             --enable-poppler-glib \
-            --disable-xpdf-headers
+            --disable-static            \
+            --enable-build-type=release \
+            --enable-cmyk               \
+            --enable-xpdf-headers
 
 make
 make -C poppler DESTDIR=$PKG install-libLTLIBRARIES
 make -C glib DESTDIR=$PKG install
 install -m755 -d $PKG/usr/lib/pkgconfig
 install -m644 poppler-glib.pc $PKG/usr/lib/pkgconfig/
-
 
 rm -f $PKG/usr/lib/libpoppler.*
 rm -rf $PKG/usr/share/gtk-doc/html/poppler/ 

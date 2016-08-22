@@ -1,0 +1,22 @@
+# Description: A minimalistic plugin API for video sources and filters.
+# URL: http://www.piksel.org/frei0r
+# Packager: fanch at nutyx dot org
+# Depends on: cmake doxygen gavl opencv 
+
+name=frei0r-plugins
+version=1.5.0
+release=1
+
+source=(https://files.dyne.org/frei0r/releases/$name-$version.tar.gz)
+
+build() {
+cd $name-$version
+mkdir -vp build 
+cd        build 
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -DOpenCV_DIR=/usr/share/OpenCV \
+      -Wno-dev ..
+make
+make DESTDIR=$PKG install
+}

@@ -1,14 +1,12 @@
-# Description: Generic Graphics Library
+# Description: Generic Graphics Library.
 # URL: http://gegl.org/
-# Packager: pierre at nutyx dot org
-# Depends on: babl gtk2 librsvg libpng ruby lua ffmpeg librsvg openexr exiv2
+# Packager: fanch at nutyx dot org
+# Depends on: babl exiv2 ffmpeg gtk2 json-glib librsvg libpng librsvg lua openexr ruby     
 
 name=gegl
 version=0.2.0
 release=1
-
-source=(http://ftp.gimp.org/pub/$name/0.2/$name-$version.tar.bz2
-	  http://www.linuxfromscratch.org/patches/blfs/7.9/gegl-0.2.0-ffmpeg2-1.patch)
+source=(http://ftp.gimp.org/pub/$name/0.2/$name-$version.tar.bz2 gegl-0.2.0-ffmpeg2-1.patch)
 
 build() {
 cd $name-$version

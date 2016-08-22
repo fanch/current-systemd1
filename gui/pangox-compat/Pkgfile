@@ -1,12 +1,11 @@
-# Description: X Window System font support for Pango
+# Description: X Window System font support for Pango.
 # URL: http://gnome.org
-# Packager: pierre at nutyx dot org
-# Depends on: pango 
+# Packager: fanch at nutyx dot org
+# Depends on: pango  
 
 name=pangox-compat
 version=0.0.2
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.xz)
 
 build() {

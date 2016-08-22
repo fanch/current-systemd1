@@ -1,23 +1,19 @@
-# Description: An image viewing/manipulation program
-# URL: URL: http://www.imagemagick.org/
-# NuTyX Pkgfile (http://nutyx.org)
-# Packager: # NuTyX Pkgfile (http://nutyx.org)
-# Depends on: freetype ghostscript lcms libgsf giflib libxml2 openexr libwmf libpng librsvg libwebp djvulibre 
+# Description: An image viewing/manipulation program.
+# URL: http://www.imagemagick.org/
+# Packager: fanch at nutyx dot org
+# Depends on: djvulibre freetype ghostscript giflib lcms libgsf libpng librsvg libwebp libwmf libxml2 openexr      
 
 name=imagemagick
-version=7.0.1.1
+version=7.0.1.10
 release=1
-_version=7.0.1-1
+_version=7.0.1-10
 source=(ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-${_version}.tar.xz)
 
 build () {
     cd ImageMagick-*
-
     [ "`uname -m`" == "i686"   ] && EXTRAOPTS="--with-gcc-arch=i686"
     [ "`uname -m`" == "x86_64"   ] && EXTRAOPTS="--with-gcc-arch=x86-64"
-    
     sed '/AC_PATH_XTRA/d' -i configure.ac
-
     ./configure --prefix=/usr \
                 --enable-static=no \
                 --enable-shared \
@@ -36,6 +32,7 @@ build () {
                 --with-rsvg \
                 --enable-opencl \
                 --with-openjp2 \
+                --disable-static \
                 $EXTRAOPTS
     make
     make DESTDIR=$PKG install

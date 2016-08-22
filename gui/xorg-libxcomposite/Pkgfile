@@ -1,13 +1,12 @@
-# Description: libXcomposite, library Composite extension client
+# Description: libXcomposite, library Composite extension client.
 # URL: http://xorg.freedesktop.org
-# Packager: pierre at nutyx dot org
-# Depends on: xorg-libx11 xorg-proto xorg-libxfixes xorg-libxext 
+# Packager: fanch at nutyx dot org
+# Depends on: xorg-libx11 xorg-libxfixes xorg-libxext xorg-proto
 
 name=xorg-libxcomposite
 version=0.4.4
 release=1
-
-source=(http://mirror.switch.ch/ftp/mirror/X11/pub/individual/lib/libXcomposite-$version.tar.bz2)
+source=(http://ftp.x.org/pub/individual//lib/libXcomposite-$version.tar.bz2)
 
 build() {
 cd libXcomposite-$version

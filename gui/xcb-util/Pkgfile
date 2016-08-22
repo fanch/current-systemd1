@@ -1,19 +1,16 @@
-# Description: XCB utilities library
+# Description: XCB utilities library.
 # URL: http://xcb.freedesktop.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libxcb 
 
 name=xcb-util
 version=0.4.0
 release=1
-
 source=(http://xcb.freedesktop.org/dist/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
-
 	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
-
 	make
 	make DESTDIR=$PKG install
 }

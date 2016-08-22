@@ -1,10 +1,10 @@
 # Description:  an interactive process viewer
-# URL:          http://htop.sourceforge.net/
-# Packager:    fanch at nutyx dot org
-# Depends on:   ncurses
+# URL: http://htop.sourceforge.net/
+# Packager: fanch at nutyx dot org
+# Depends on: ncurses
 
 name=htop
-version=1.0.3
+version=2.0.1
 release=1
 source=(http://hisham.hm/$name/releases/$version/$name-$version.tar.gz)
 

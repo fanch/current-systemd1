@@ -1,0 +1,16 @@
+# Description: The modern video toolkit.
+# URL: http://movit.sesse.net/
+# Packager: fanch at nutyx dot org
+# Depends on: eigen3 fftw gtest libepoxy sdl2  
+
+name=movit
+version=1.3.2
+release=1
+source=(https://movit.sesse.net/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr
+  make
+  make DESTDIR=$PKG install
+}

@@ -1,12 +1,11 @@
-# Description: Simple scanning interface utility
+# Description: Simple scanning interface utility.
 # URL: https://launchpad.net/simple-scan/
-# Packagers: pierre at nutyx dot org
-# Depends on: gtk3 libgusb colord itstool sane dconf intltool xorg-libxcursor xorg-libxdamage xorg-libxrandr xorg-libxinerama
+# Packagers: fanch at nutyx dot org
+# Depends on: colord dconf gtk3 intltool itstool libgusb sane xorg-libxcursor xorg-libxdamage xorg-libxinerama xorg-libxrandr 
 
 name=simple-scan
 version=3.20.0
 release=1
-
 source=(https://launchpad.net/$name/${version%.*}/$version/+download/$name-$version.tar.xz)
 
 build() {

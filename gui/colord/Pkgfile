@@ -1,26 +1,27 @@
-# Description: System daemon for managing color devices
+# Description: System daemon for managing color devices.
 # URL: http://www.freedesktop.org/software/colord/
-# Packager: pierre at nutyx dot org
-# Depends on: libgudev sqlite polkit lcms2 gobject-introspection libusb dbus vala libgusb
+# Packager: fanch at nutyx dot org
+# Depends on: dbus gobject-introspection lcms2 libgudev libgusb libusb polkit sqlite vala
 
 name=colord
-version=1.3.1
+version=1.3.2
 release=1
-
 source=(http://www.freedesktop.org/software/$name/releases/$name-$version.tar.xz)
 
 build() {
 cd $name-$version
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---with-daemon-user=colord \
---enable-vala \
---enable-systemd-login=no \
---disable-argyllcms-sensor \
---disable-static \
---with-systemdsystemunitdir=no \
---disable-bash-completion
+./configure --prefix=/usr              \
+            --sysconfdir=/etc          \
+            --localstatedir=/var       \
+            --with-daemon-user=colord  \
+            --enable-vala              \
+            --enable-daemon            \
+            --enable-session-helper    \
+            --enable-libcolordcompat   \
+            --disable-rpath            \
+            --disable-argyllcms-sensor \
+            --disable-bash-completion  \
+            --disable-static
 make
 make DESTDIR=$PKG install
 }

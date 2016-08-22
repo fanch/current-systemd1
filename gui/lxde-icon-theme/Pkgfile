@@ -1,15 +1,11 @@
 # Description: The LXDE Icon Theme package contains nuoveXT 2.2 Icon Theme for LXDE.
 # URL: http://lxde.org/
-# Maintainer: Hong Jen Yee (PCMan) pcman dot tw at gmail.com
-# Packager: geantbrun at gmail dot com
+# Packager: fanch at nutyx dot org
 # Depends on: gtk-update-icon-cache
-run=(gtk-update-icon-cache)
-
 
 name=lxde-icon-theme
 version=0.5.1
-release=2
-
+release=1
 source=(http://downloads.sourceforge.net/lxde/$name-$version.tar.xz)
 
 

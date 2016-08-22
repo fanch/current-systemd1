@@ -1,15 +1,12 @@
 # Description: The Xorg font packages provide needed fonts to the Xorg applications.
 # URL: http://xorg.freedesktop.org
-# Packager: tnut at nutyx dot org
-# Depends on: xorg-font-util,xorg-encodings,xorg-xcursor-themes,xorg-fontconfig
+# Packager: fanch at nutyx dot org
+# Depends on: xorg-app xorg-encodings xorg-fontconfig xorg-font-util xorg-xcursor-themes 
 
-
-run=(xorg-fontconfig xorg-app)
 section="font"
 name=xorg-font
 version=7.7
-release=2
-
+release=1
 source=()
 
 build() {
@@ -55,7 +52,7 @@ beef61a9b0762aba8af7b736bb961f86  font-sony-misc-1.0.3.tar.bz2
 EOF
 for package in $(grep -v '^#' ${section}-${version}-${release}.md5 |cut -d " " -f 3)
 	do
-		wget http://mirror.switch.ch/ftp/mirror/X11/pub/individual/${section}/$package
+		wget http://ftp.x.org/pub/individual//${section}/$package
 		grep $package $section-$version-$release.md5 |md5sum -c -
 		packagedir=$(echo $package | sed 's/.tar.bz2//')
 		tar -xf $package
@@ -76,4 +73,5 @@ usr/share/man/man1/ucs2any.1
 do
   rm $PKG/$FILE
 done
+rm "$PKG/usr/share/fonts/"*/fonts.*
 }

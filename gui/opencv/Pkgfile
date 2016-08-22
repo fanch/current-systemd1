@@ -1,31 +1,23 @@
-# Description: Open Source Computer Vision Library
-# Description: Open Source Computer Vision Library
+# Description: Open Source Computer Vision Library.
 # URL: http://opencv.willowgarage.com/wiki/
-# Packager: pierre at nutyx dot org
-# Depends on: libjpeg-turbo libtiff jasper libpng ffmpeg gstreamer xine-lib 
-
-_pybin=python2
-_pydir=python2.7
+# Packager: fanch at nutyx dot org
+# Depends on:  ffmpeg gstreamer jasper libjpeg-turbo libtiff libpng python xine-lib 
 
 name=opencv
-version=2.4.11
+version=3.1.0
 release=1
 
 source=( http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$name-$version.zip)
 build() {
         cd $name-*
-        cmake . -DCMAKE_BUILD_TYPE=Release \
-                -DCMAKE_INSTALL_PREFIX=/usr \
-                -DCMAKE_SKIP_RPATH=ON \
-                -DWITH_XINE=ON \
-                -DWITH_UiNICAP=OFF \
-                -DPYTHON_EXECUTABLE=/usr/bin/$_pybin \
-                -DPYTHON_INCLUDE_DIR=/usr/include/$_pydir \
-                -DPYTHON_LIBRARY=/usr/lib/lib$_pydir.so
+	mkdir build
+	cd    build
+        cmake -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_INSTALL_PREFIX=/usr \
+              -DCMAKE_SKIP_RPATH=ON \
+              -DWITH_XINE=ON \
+	      -DBUILD_TESTS=OFF \
+	      -Wno-dev ..
         make
         make DESTDIR=$PKG install
 }
-
-
-
-

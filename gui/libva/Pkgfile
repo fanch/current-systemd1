@@ -1,0 +1,17 @@
+# Description: Video Acceleration (VA) API for Linux.
+# URL: http://freedesktop.org/wiki/Software/vaapi
+# Packager: fanch at nutyx dot org
+# Depends on: xorg-libdrm xorg-libxfixes xorg-mesa
+
+name=libva
+version=1.7.1
+release=1
+source=(http://www.freedesktop.org/software/vaapi/releases/$name/$name-$version.tar.bz2)
+
+
+build() {
+cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

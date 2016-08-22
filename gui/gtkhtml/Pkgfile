@@ -1,9 +1,7 @@
-# Description: The GtkHTML package contains a lightweight HTML rendering/printing/editing engine.
+# Description: A lightweight HTML renderer/editor widget for GTK3.
 # URL: https://github.com/GNOME/gtkhtml
-# Packager: fanch at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: enchant gsettings-desktop-schemas gtk3 iso-codes libsoup
-
-run=(gsettings-desktop-schemas)
 
 name=gtkhtml
 version=4.10.0

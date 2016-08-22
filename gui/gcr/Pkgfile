@@ -1,7 +1,7 @@
-# Description: A library for bits of crypto UI and parsing
+# Description: A library for bits of crypto UI and parsing.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
-# Depends on: icu gtk3 intltool libgcrypt libtasn1 p11-kit gobject-introspection desktop-file-utils gnupg libxslt vala
+# Packager: fanch at nutyx dot org
+# Depends on: desktop-file-utils gnupg gobject-introspection gtk3 icu intltool libgcrypt libtasn1 libxslt p11-kit vala    
 
 name=gcr
 version=3.20.0
@@ -11,8 +11,9 @@ source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$versio
 
 build() {
 cd $name-$version
-./configure --prefix=/usr \
---sysconfdir=/etc
+sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc
 make 
 make DESTDIR=$PKG install
 }

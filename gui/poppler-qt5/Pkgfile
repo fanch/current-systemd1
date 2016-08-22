@@ -1,7 +1,7 @@
-# Description: PDF rendering library based on xpdf 3.0
-# URL: URL: http://poppler.freedesktop.org/
-# Packager: alienus at nutyx dot org
-# Depends on: poppler xorg-libxxf86vm libpng xorg-fontconfig libjpeg-turbo cairo libxml2 openjpeg lcms lcms2 qt5
+# Description: PDF rendering library based on xpdf 3.0.
+# URL: http://poppler.freedesktop.org/
+# Packager: fanch at nutyx dot org
+# Depends on: cairo lcms lcms2 libpng libjpeg-turbo libxml2 openjpeg poppler qt5 xorg-fontconfig xorg-libxxf86vm         
 
 name=poppler-qt5
 release=1
@@ -13,6 +13,7 @@ build() {
     ./configure --prefix=/usr             \
             --sysconfdir=/etc             \
             --disable-static              \
+            --enable-cmyk                 \
             --enable-qt5                  \
             --disable-qt4                 \
             --disable-glib                \

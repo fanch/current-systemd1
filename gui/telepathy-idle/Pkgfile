@@ -1,12 +1,11 @@
-# Description: An IRC connection manager for Telepathy
+# Description: An IRC connection manager for Telepathy.
 # URL: http://telepathy.freedesktop.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: telepathy-glib 
 
 name=telepathy-idle
 version=0.2.0
 release=1
-
 source=(http://${name%-*}.freedesktop.org/releases/$name/$name-$version.tar.gz)
 
 build() {

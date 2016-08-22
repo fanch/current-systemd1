@@ -1,7 +1,7 @@
 # Description: C++ bindings for gtk3
 # URL: http://gtkmm.sourceforge.net/
 # Packagers: fanch at nutyx dot org, tnut at nutyx dot org
-# Depends on: gtk3 pangomm cairomm atkmm 
+# Depends on: atkmm cairomm gtk3 pangomm   
 
 name=gtkmm3
 _name=gtkmm

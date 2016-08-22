@@ -1,13 +1,12 @@
-# Description: GObject collection library (legacy)
+# Description: GObject collection library.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: glib gobject-introspection vala 
 
 name=libgee
 version=0.18.0
 release=1
-
-source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version:0:4}/$name-$version.tar.xz)
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
 
 build() {
 cd $name-$version
