@@ -1,6 +1,6 @@
 # Description: OpenJPEG is an open-source implementation of the JPEG-2000 standard.
 # URL: http://www.ijg.org/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: cmake lcms2 libpng libtiff 
 
 _name=openjpeg
@@ -8,7 +8,7 @@ name=openjpeg2
 version=2.1.0
 release=1
 
-source=( http://downloads.sourceforge.net/openjpeg.mirror/${_name}-$version.tar.gz )
+source=(http://downloads.sourceforge.net/openjpeg.mirror/${_name}-$version.tar.gz )
 
 
 build() {

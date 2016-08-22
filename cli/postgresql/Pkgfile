@@ -6,7 +6,7 @@
 PKGMK_GROUPS=(lib doc man devel service)
 
 name=postgresql
-version=9.5.2
+version=9.5.3
 release=1
 
 source=( http://ftp.postgresql.org/pub/source/v$version/$name-$version.tar.bz2)
@@ -16,16 +16,14 @@ source /etc/blfs-systemd-units
 wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
 tar xvf $scripts-$scriptsversion.tar.bz2
 
-
 cd $name-$version
 # prepare
 sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_manual.h
 
 # configure
 ./configure --prefix=/usr \
---mandir=/usr/share/man \
---with-docdir=/usr/share/doc/$name-$version \
---enable-thread-safety
+--enable-thread-safety \
+--with-docdir=/usr/share/doc/$name-$version 
 
 # build
 make

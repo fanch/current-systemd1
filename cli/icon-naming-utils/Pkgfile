@@ -1,6 +1,6 @@
-# Description: Maps the new names of icons for Tango to the legacy names used by GNOME and KDE desktops
+# Description: Maps the new names of icons for Tango to the legacy names used by GNOME and KDE desktops.
 # URL: http://tango.freedesktop.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: perl-xml-simple 
 
 name=icon-naming-utils
@@ -11,10 +11,7 @@ source=(http://tango.freedesktop.org/releases/$name-$version.tar.bz2)
 
 build() {
 cd $name-$version
-	./configure --prefix=/usr \
-	--sysconfdir=/etc \
-	--libexecdir=/usr/lib/icon-naming-utils \
-	--localstatedir=/var
+	./configure --prefix=/usr 
 	make
 	make DESTDIR=$PKG install
 }

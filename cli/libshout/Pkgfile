@@ -1,10 +1,10 @@
-# Description: Library for accessing a shoutcast/icecast server
+# Description: Library for accessing a shoutcast/icecast server.
 # URL: http://www.icecast.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libvorbis libtheora speex 
 
 name=libshout
-version=2.3.1
+version=2.4.1
 release=1
 
 source=(http://downloads.xiph.org/releases/$name/$name-$version.tar.gz)

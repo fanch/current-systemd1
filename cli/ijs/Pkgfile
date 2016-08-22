@@ -1,6 +1,6 @@
-# Description: A library which implements a protocol for transmission of raster page images.
+# Description: Library which implements a protocol for transmission of raster page images.
 # URL: http://www.linuxfoundation.org/collaborate/workgroups/openprinting
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=ijs
@@ -12,8 +12,9 @@ source=(http://www.openprinting.org/download/$name/download/$name-$version.tar.b
 build() {
 cd $name-$version
 ./configure --prefix=/usr \
---enable-shared --disable-static \
---infodir=/usr/share/info --mandir=/usr/share/man
+            --mandir=/usr/share/man \
+            --enable-shared \
+            --disable-static
 make
 make DESTDIR=$PKG install
 }

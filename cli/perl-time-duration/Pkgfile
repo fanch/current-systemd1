@@ -1,15 +1,13 @@
-# Description: Rounded or exact English expression of durations
-# URL: URL: http://search.cpan.org/dist/Time-Duration 
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: perl-test-pod perl-test-pod-coverage 
-run=( perl )
+# Description: Rounded or exact English expression of durations.
+# URL: http://search.cpan.org/dist/Time-Duration 
+# Packager: fanch dot nutyx at org
+# Depends on: perl-test-pod perl-test-pod-coverage perl
+
 name=perl-time-duration
-version=1.1
+version=1.20
 release=1
 
-source=(
-http://www.cpan.org/authors/id/A/AV/AVIF/Time-Duration-$version.tar.gz)
+source=(http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Time-Duration-$version.tar.gz)
 
 build() {
     cd Time-Duration-$version
@@ -23,6 +21,3 @@ build() {
     done
 }
 
-
-
-# NuTyX Pkgfile (http://nutyx.org)

@@ -1,10 +1,10 @@
-# Description: The Berkeley DB embedded database system
+# Description: The Berkeley DB embedded database system.
 # URL: http://www.oracle.com/technology/software/products/berkeley-db/index.html
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=db
-version=6.1.26
+version=6.2.23
 release=1
 
 source=(http://download.oracle.com/berkeley-db/$name-$version.tar.gz)
@@ -12,15 +12,18 @@ source=(http://download.oracle.com/berkeley-db/$name-$version.tar.gz)
 build() {
 cd $name-$version
 cd build_unix
-../dist/configure --prefix=/usr \
---enable-compat185 \
---enable-shared \
---enable-cxx --enable-dbm
+../dist/configure --prefix=/usr      \
+                  --enable-compat185 \
+                  --enable-dbm       \
+                  --disable-static   \
+                  --enable-cxx 
 make
 make DESTDIR=$PKG \
 docdir=/usr/share/doc/$name-$version install
 
-chown -R 0:0 $PKG
-chmod -R +w $PKG
-rm -rf $PKG/usr/share/info/dir
+chown -v -R root:root                        \
+      $PKG/usr/bin/db_*                          \
+      $PKG/usr/include/db{,_185,_cxx}.h          \
+      $PKG/usr/lib/libdb*.{so,la}                \
+      $PKG/usr/share/doc/db-6.2.23
 }

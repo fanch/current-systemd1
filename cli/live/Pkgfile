@@ -1,5 +1,6 @@
+# Description: A set of C++ libraries for multimedia streaming.
 # URL: http://www.live555.com/liveMedia/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=live

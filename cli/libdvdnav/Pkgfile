@@ -1,6 +1,6 @@
-# Description: The library for xine-dvdnav plugin
+# Description: The library for xine-dvdnav plugin.
 # URL: http://mplayerhq.hu
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libdvdread 
 
 name=libdvdnav

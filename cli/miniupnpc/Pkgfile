@@ -1,9 +1,10 @@
-# Description: A small UPnP client library/tool to access Internet Gateway Devices
+# Description: A small UPnP client library/tool to access Internet Gateway Devices.
 # URL: http://miniupnp.free.fr
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=miniupnpc
-version=1.9
+version=2.0
 release=1
 
 source=(http://miniupnp.free.fr/files/$name-$version.tar.gz)

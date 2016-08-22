@@ -1,6 +1,6 @@
-# URL: URL: http://cthedot.de/cssutils/
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
+# Description: A CSS Cascading Style Sheets library for Python.
+# URL: http://cthedot.de/cssutils/
+# Packager: fanch dot nutyx at org
 # Depends on: python-setuptools 
 
 name=python-cssutils
@@ -12,8 +12,12 @@ source=(http://pypi.python.org/packages/source/c/cssutils/cssutils-$version.tar.
 build() {
     cd cssutils-$version
     python2 setup.py install --prefix=/usr --root=$PKG
-
     # rm tests (FS#27567)
     rm -rf $PKG/usr/lib/python2.7/site-packages/tests
+    python3 setup.py install --prefix=/usr --root=$PKG
+    # Avoid a conflict: only keep the Py2 executables.
+    rm -rf "${PKG}/usr/bin"
+    # Don't install tests (FS#27567)
+    rm -rf "${PKG}/usr/lib/python3.3/site-packages/tests"
 }
 

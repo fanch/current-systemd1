@@ -1,6 +1,6 @@
-# Description: Provides a simple foundation for reading DVD video disks
+# Description: Provides a simple foundation for reading DVD video disks.
 # URL: http://mplayerhq.hu
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=libdvdread
 version=5.0.3

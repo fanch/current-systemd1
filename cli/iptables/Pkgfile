@@ -1,6 +1,6 @@
 # Description: The principal firewall tool for Linux.
 # URL: http://www.iptables.org/
-# Packager: fanch at nutyx dot org - systemd
+# Packager: fanch at nutyx dot org 
 
 name=iptables
 version=1.6.0

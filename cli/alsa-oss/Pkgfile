@@ -1,0 +1,18 @@
+# Description: Sound interface.
+# URL: http://www.alsa-project.org
+# Packager: fanch at nutyx dot org
+# Depends on: alsa-lib 
+ 
+
+name=alsa-oss
+version=1.0.28
+release=1
+
+source=(ftp://ftp.alsa-project.org/pub/oss-lib/$name-$version.tar.bz2)
+
+build() {
+cd $name-$version
+./configure --disable-static
+make
+make DESTDIR=$PKG install
+}

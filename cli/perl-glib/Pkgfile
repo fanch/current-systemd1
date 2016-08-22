@@ -1,8 +1,7 @@
-# Description: Perl connector for glib
+# Description: Perl connector for glib.
 # URL: http://www.gtkperl.org
-# Packager: pierre at nutyx dot org
-# Depends on: perl-extutils-depends gobject-introspection perl-extutils-pkgconfig 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl-extutils-depends gobject-introspection perl-extutils-pkgconfig perl 
 
 name=perl-glib
 version=1.321

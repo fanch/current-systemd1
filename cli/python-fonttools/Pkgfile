@@ -1,18 +1,17 @@
-# Description: Tools to manipulate font files
-# URL: URL: http://sourceforge.net/projects/fonttools/
-# Packager: tnut at nutyx dot org
-# Depends on: python python-numpy python-setuptools 
+# Description: Tools to manipulate font files.
+# URL: http://sourceforge.net/projects/fonttools/
+# Packager: fanch at nutyx dot org
+# Depends on: python python3 python-numpy python-setuptools 
 
 name=python-fonttools
-version=2.4
+version=3.0
 release=1
-
-source=(http://pypi.python.org/packages/source/F/FontTools/FontTools-$version.tar.gz)
+source=(https://pypi.python.org/packages/41/34/c3784d827d7b8470ed59d271b6381547b425695b1498fc042ea920b94a43/fonttools-$version.tar.gz)
 
 build() {
-    cd FontTools-$version
-    python2 setup.py build install --root=$PKG       
+    cd fonttools-$version
+    python2 setup.py build install --root=$PKG 
+    python3 setup.py build install --root=$PKG      
 }
 
 
-# NuTyX Pkgfile (http://nuryx.org)

@@ -1,8 +1,7 @@
-# Description: Provide https support for LWP::UserAgent
+# Description: Provide https support for LWP::UserAgent.
 # URL: Provide https support for LWP::UserAgent
-# Packager: pierre at nutyx dot org
-# Depends on: perl perl-io-socket-ssl perl-mozilla-ca perl-net-http perl-libwww 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl-io-socket-ssl perl-mozilla-ca perl-net-http perl-libwww perl 
 
 name=perl-lwp-protocol-https
 version=6.06

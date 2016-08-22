@@ -1,6 +1,6 @@
 # Description: Useful for extracting specially formatted comments from the code to create API docs. 
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: docbook-xml docbook-xsl itstool libxslt
 
 name=gtk-doc

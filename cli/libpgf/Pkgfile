@@ -1,6 +1,6 @@
-# Description : An implementation of the Progressive Graphics File (PGF)
+# Description : An implementation of the Progressive Graphics File (PGF).
 # URL : http://www.libpgf.org
-# Packager : pierre at nutyx dont org
+# Packager : fanch at nutyx dont org
 # Depends on : dos2unix
 
 name=libpgf

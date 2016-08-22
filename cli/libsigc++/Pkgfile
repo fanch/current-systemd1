@@ -1,7 +1,8 @@
 # Description: The libsigc++ package implements a typesafe callback system for standard C++.
 # URL: http://libsigc.sourceforge.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=libsigc++
 version=2.9.1
 release=1

@@ -1,6 +1,7 @@
-# Description: Lightweight Directory Access Protocol (LDAP) client and server
+# Description: Lightweight Directory Access Protocol (LDAP) client and server.
 # URL: http://www.openldap.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
+# Depends on: cyrus-sasl
 
 name=openldap
 version=2.4.44
@@ -10,15 +11,45 @@ source=(ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$name-$version.tgz
 	 http://www.linuxfromscratch.org/patches/downloads/openldap/openldap-$version-consolidated-1.patch)
 build() {
 cd $name-$version
+    source /etc/blfs-systemd-units
+    wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+    tar xvf $scripts-$scriptsversion.tar.bz2
+    
 patch -Np1 -i ../openldap-$version-consolidated-1.patch
+
 autoconf
-./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --disable-static \
-            --enable-dynamic \
-            --disable-debug \
-            --disable-slapd
+./configure --prefix=/usr         \
+            --sysconfdir=/etc     \
+            --localstatedir=/var  \
+            --libexecdir=/usr/lib \
+            --disable-static      \
+            --disable-debug       \
+            --with-tls=openssl    \
+            --with-cyrus-sasl     \
+            --enable-dynamic      \
+            --enable-crypt        \
+            --enable-spasswd      \
+            --enable-slapd        \
+            --enable-modules      \
+            --enable-backends=mod \
+            --disable-ndb         \
+            --disable-sql         \
+            --disable-shell       \
+            --disable-bdb         \
+            --disable-hdb         \
+            --enable-overlays=mod
 make depend
 make
-make DESTDIR=$PKG install   
+make DESTDIR=$PKG install  
+install -v -dm700 -o ldap -g ldap $PKG/var/lib/openldap     
+install -v -dm700 -o ldap -g ldap $PKG/etc/openldap/slapd.d 
+chmod   -v    640     $PKG/etc/openldap/slapd.{conf,ldif}   
+chown   -v  root:ldap $PKG/etc/openldap/slapd.{conf,ldif}   
+
+install -v -dm755 $PKG/usr/share/doc/openldap-$version
+cp      -vfr      doc/{drafts,rfc,guide} \
+                  $PKG/usr/share/doc/openldap-$version
+# Service
+cd $SRC/$scripts-$scriptsversion
+make DESTDIR=$PKG install-slapd 
 }

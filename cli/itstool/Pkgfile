@@ -1,6 +1,6 @@
-# Description: XML to PO and back again
+# Description: XML to PO and back again.
 # URL: http://itstool.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: docbook-xml docbook-xsl python 
 
 name=itstool

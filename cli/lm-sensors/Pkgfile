@@ -1,6 +1,6 @@
-# Description: Collection of user space tools for general SMBus access and hardware monitoring
+# Description: Collection of user space tools for general SMBus access and hardware monitoring.
 # URL: http://dl.lm-sensors.org/lm-sensors/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=lm-sensors

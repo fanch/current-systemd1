@@ -1,7 +1,8 @@
 # Description: Documentation meta-data library, designed as a replacement for Scrollkeeper.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libxslt 
+
 name=rarian
 version=0.8.1
 release=1

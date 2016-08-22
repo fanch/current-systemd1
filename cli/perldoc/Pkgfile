@@ -1,8 +1,8 @@
-# Description: perldoc (Official Perl documentation)
-# URL: URL: http://perldoc.perl.org 
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
+# Description: perldoc (Official Perl documentation).
+# URL: http://perldoc.perl.org 
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=perldoc
 version=5.20.1
 release=1
@@ -10,8 +10,7 @@ release=1
 source=(
 http://perldoc.perl.org/perldoc-html.tar.gz
 perldoc.desktop
-perldoc.png
-)
+perldoc.png)
 
 build(){
 mkdir -p $PKG/usr/share/doc/$name-$version

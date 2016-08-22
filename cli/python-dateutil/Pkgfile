@@ -1,15 +1,12 @@
 # Description: Provides powerful extensions to the standard datetime module.
-# URL: URL: http://labix.org/python-dateutil
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
+# URL: http://labix.org/python-dateutil
+# Packager: fanch dot nutyx at org
 # Depends on: python-six python-setuptools 
 
 name=python-dateutil
-version=2.4.2
+version=2.5.3
 release=1
-
-source=(
-http://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-$version.tar.gz)
+source=(https://pypi.python.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz)
 
 build() {
     cd $name-$version
@@ -17,6 +14,10 @@ build() {
     # check
     python2 updatezinfo.py
     python2 setup.py test
+    python3 setup.py install --prefix=/usr --root=$PKG
+    # check
+    python3 updatezinfo.py
+    python3 setup.py test
 }
 
 

@@ -1,13 +1,11 @@
-# Description: USB Device Utilities
+# Description: USB Device Utilities.
 # URL: http://downloads.sourceforge.net/linux-usb/
-# Packager: pierre at nutyx dot org
-# Depends on: libusb-compat 
-run=( wget )
+# Packager: fanch at nutyx dot org
+# Depends on: libusb-compat wget
 
 name=usbutils
 version=008
 release=1
-
 source=(http://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-$version.tar.xz)
 
 build() {
@@ -20,4 +18,6 @@ sed -i '/^usbids/ s:usb.ids:hwdata/&:' lsusb.py
 mkdir -p $PKG/usr/share/hwdata
 make
 make DESTDIR=$PKG install
+install -dm755 /usr/share/hwdata/ 
+wget http://www.linux-usb.org/usb.ids -O $PKG/usr/share/hwdata/usb.ids
 }

@@ -1,8 +1,8 @@
-# Description: Library for Uniform Resource Identifiers Perl
+# Description: Library for Uniform Resource Identifiers Perl.
 # URL: http://search.cpan.org/~gaas/URI-1.35/URI.pm
-# Packager: pierre at nutyx dot org
-# Depends on: 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl
+
 name=perl-uri
 version=1.71
 release=1

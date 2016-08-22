@@ -1,6 +1,6 @@
-# Description: A C++ unit testing framework
+# Description: A C++ unit testing framework.
 # URL: http://www.freedesktop.org/wiki/Software/cppunit
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=cppunit
 version=1.13.2

@@ -1,8 +1,8 @@
-# Description: Perl connector for pkgconfig
+# Description: Perl connector for pkgconfig.
 # URL: http://www.gtkperl.org
-# Packager: pierre at nutyx dot org
-# Depends on: perl-extutils-depends 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl-extutils-depends perl 
+
 name=perl-extutils-pkgconfig
 version=1.15
 release=1

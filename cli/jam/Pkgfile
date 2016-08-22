@@ -1,6 +1,6 @@
 # Description: Jam is a software build tool.
 # URL: http://www.perforce.com/documentation/jam
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=jam
 version=2.5

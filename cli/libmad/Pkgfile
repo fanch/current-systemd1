@@ -1,6 +1,6 @@
-# Description: A high-quality MPEG audio decoder
+# Description: A high-quality MPEG audio decoder.
 # URL: http://www.underbit.com/products/mad/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=libmad

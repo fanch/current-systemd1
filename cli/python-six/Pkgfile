@@ -1,8 +1,7 @@
 # Description: Python 2 and 3 compatibility utilities.
 # URL: URL: http://pypi.python.org/pypi/six/
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: python 
+# Packager: fanch dot nutyx at org
+# Depends on: python python3
 
 name=python-six
 version=1.10.0
@@ -15,6 +14,8 @@ build() {
     cd six-$version
     python2 setup.py check
     python2 setup.py install --prefix=/usr --root=$PKG
+    python3 setup.py check
+    python3 setup.py install --prefix=/usr --root=$PKG
 }
 
 

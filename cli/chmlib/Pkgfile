@@ -1,7 +1,8 @@
-# Description: Library for dealing with Microsoft ITSS/CHM format files
+# Description: Library for dealing with Microsoft ITSS/CHM format files.
 # URL: http://morte.jedrea.com/~jedwin/projects/chmlib/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=chmlib
 version=0.40
 release=1

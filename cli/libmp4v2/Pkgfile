@@ -1,6 +1,6 @@
-# Description: MPEG-4 library
+# Description: MPEG-4 library.
 # URL: http://code.google.com/p/mp4v2
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=libmp4v2
 version=2.0.0

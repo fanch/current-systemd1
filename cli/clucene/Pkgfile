@@ -1,7 +1,7 @@
 # Description: CLucene is a C++ version of Lucene, a high performance text search engine.
 # URL: http://clucene.sourceforge.net
-# Packager: tnut at nutyx dot org
-# Depends on: cmake
+# Packager: fanch at nutyx dot org
+# Depends on: boost cmake
 
 name=clucene
 version=2.3.3.4
@@ -12,7 +12,7 @@ http://www.linuxfromscratch.org/patches/blfs/svn/$name-$version-contribs_lib-1.p
 
 build() {
         cd $name-core-$version
-        patch -Np1 -i ../$name-$version-contribs_lib-1.patch &&
+        patch -Np1 -i ../$name-$version-contribs_lib-1.patch 
         mkdir build
         cd build
         cmake -DCMAKE_INSTALL_PREFIX=/usr \

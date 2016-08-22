@@ -1,19 +1,22 @@
-# Description: provides the management of colors for other programs
+# Description: provides the management of colors for other programs.
 # URL: http://www.littlecms.com/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libtiff libjpeg-turbo 
 
 name=lcms
 version=1.19
 release=1
 
-source=( http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
+source=( http://downloads.sourceforge.net/$name/$name-$version.tar.gz
+ http://www.linuxfromscratch.org/patches/blfs/svn/lcms-1.19-cve_2013_4276-1.patch)
 
 build() {
 cd $name-$version
-./configure --prefix=/usr \
---mandir=/usr/share/man \
---infodir=/usr/share/info
+patch -Np1 -i ../lcms-1.19-cve_2013_4276-1.patch 
+./configure --prefix=/usr --disable-static
 make
 make DESTDIR=$PKG install
+install -v -m755 -d $PKG/usr/share/doc/lcms-1.19 
+install -v -m644    README.1ST doc/* \
+                    $PKG/usr/share/doc/lcms-1.19
 }

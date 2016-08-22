@@ -1,10 +1,9 @@
-# Description: The libndp package provides a wrapper for IPv6 Neighbor Discovery Protocol. 
+# Description: A wrapper for IPv6 Neighbor. Discovery Protocol. 
 # URL: http://libndp.org
-# Maintainer: iri Pirko jiri at resnulli dot us
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=libndp
-version=1.5
+version=1.6
 release=1
 
 source=(http://libndp.org/files/$name-$version.tar.gz)

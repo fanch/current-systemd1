@@ -1,12 +1,11 @@
 # Description: Low Level Virtual Machine, collection of modular and reusable compiler and toolchain.
 # URL: http://llvm.org/
-# Maintainers: Chris Lattner <sabre at nondot dot org>
-# Packager: pierre at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: python cmake
 
 name=llvm
-version=3.8.0
-release=2
+version=3.8.1
+release=1
 
 source=(http://llvm.org/releases/$version/$name-$version.src.tar.xz
 	http://llvm.org/releases/$version/cfe-$version.src.tar.xz

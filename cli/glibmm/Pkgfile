@@ -1,6 +1,6 @@
 # Description: gtkmm is the official C++ interface for the popular GUI library GTK+.
 # URL: http://www.gtkmm.org
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libsigc++ glib 
 
 name=glibmm

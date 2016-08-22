@@ -1,12 +1,11 @@
-# Description: Programming language which bring news features of languages of programming modern to developers GNOME
+# Description: Languages of programming modern to developers GNOME.
 # URL: http://live.gnome.org/Vala
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: glib 
 
 name=vala
-version=0.32.0
+version=0.32.1
 release=1
-
 source=(http://ftp.gnome.org/pub/gnome/sources/vala/${version%.*}/$name-$version.tar.xz )
 
 build() {

@@ -1,24 +1,37 @@
 # Description: Varnish is a web application accelerator. 
 # URL: http://www.varnish-cache.org/
-# Packager: alieanus at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libedit pcre python-docutils 
 
 name=varnish
-version=4.1.0
+version=4.1.2
 release=1
 
-source=(
-http://repo.varnish-cache.org/source/$name-$version.tar.gz
-varnish.service)
+source=(http://repo.varnish-cache.org/source/$name-$version.tar.gz
+varnish-vcl-reload varnish.service varnish.sysusers)
 
 build(){
     cd $name-$version
-    ./configure --prefix=/usr \
-                --sysconfdir=/etc \
-                --localstatedir=/var/lib
+    # https://github.com/varnish/Varnish-Cache/pull/88
+  [[ $CARCH == i686 ]] && CFLAGS+=' -ffloat-store -fexcess-precision=standard'
+    ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var/lib \
+    --sbindir=/usr/bin
     make
     make DESTDIR=$PKG install
 
-    # install the varnish init script
-    install -Dm755 $SRC/$name.service $PKG/etc/rc.d/init.d/$name
+  install -m755 $SRC/varnish-vcl-reload $PKG/usr/bin
+  install -Dm644 $SRC/$name.service $PKG/usr/lib/systemd/system/$name.service
+
+  # create varnish:varnish user/group
+  install -Dm644 $SRC/$name.sysusers $PKG/usr/lib/sysusers.d/varnish.conf
+
+  # config
+  install -Dm644 etc/example.vcl $PKG/etc/varnish/default.vcl
+  install -Dm644 etc/builtin.vcl $PKG/usr/share/doc/varnish/builtin.vcl
+
+  # license
+  install -Dm644 LICENSE $PKG/usr/share/licenses/$name/LICENSE
 }

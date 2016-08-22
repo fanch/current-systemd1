@@ -1,6 +1,6 @@
-# Description: An alternative implementation of Linux sound support
+# Description: An alternative implementation of Linux sound support.
 # URL: http://www.alsa-project.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: doxygen 
 
 name=alsa-lib
@@ -14,8 +14,10 @@ cd $name-$version
 make
 make DESTDIR=$PKG install
 make doc
-install -v -d -m755 $PKG/usr/share/doc/$name-$version/html
-cp -a doc/doxygen/html/* $PKG/usr/share/doc/$name-$version/html
-chmod 644 $PKG/usr/share/doc/$name-$version/html/*
+install -v -d -m755 $PKG/usr/share/doc/alsa-lib-1.1.1/html/search 
+install -v -m644 doc/doxygen/html/*.* \
+                $PKG/usr/share/doc/alsa-lib-1.1.1/html 
+install -v -m644 doc/doxygen/html/search/* \
+                $PKG/usr/share/doc/alsa-lib-1.1.1/html/search
 }
   

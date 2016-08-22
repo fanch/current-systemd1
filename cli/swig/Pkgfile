@@ -1,13 +1,13 @@
-# Description: SWIG Simplified Wrapper and Interface Generator
+# Description: SWIG Simplified Wrapper and Interface Generator.
 # URL: http://www.swig.org/
-# Packagers: pierre at nutyx dot org, tnut at nutyx dot org
+# Packagers: fanch at nutyx dot org
 # Depends on: pcre 
 
 name=swig
-version=3.0.8
+version=3.0.10
 release=1
 
-source=("http://downloads.sourceforge.net/$name/$name-$version.tar.gz")
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
 
 build() {
 cd $name-$version

@@ -1,19 +1,30 @@
-# Description: Set of tools for processing plaintext docs into formats such as HTML, XML, or LaTeX
-# URL: URL: http://docutils.sourceforge.net
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: python 
+# Description: Set of tools for processing plaintext docs into formats such as HTML, XML, or LaTeX.
+# URL: http://docutils.sourceforge.net
+# Packager: fanch dot nutyx at org
+# Depends on: python python3
+
 name=python-docutils
 version=0.12
 release=1
-
 source=(http://downloads.sourceforge.net/docutils/docutils-$version.tar.gz)
 
 build() {
     cd docutils-$version
-    python2 setup.py install --root=$PKG
+    python2 setup.py build --build-lib=build/python2 \
+                   install --root=$PKG --optimize=1
+  # fix python-docutils conflict
+  for _f in $PKG/usr/bin/*.py; do
+      mv -v "$_f" "${_f%.py}2.py"
+  done
+  # symlink without .py
+  for _f in $PKG/usr/bin/*.py; do
+      ln -s "$(basename $_f)" "$PKG/usr/bin/$(basename $_f .py)"
+  done
+    python3 setup.py build --build-lib=build/python \
+                  install --root=$PKG --optimize=1
+  # symlink without .py
+  for f in "$PKG"/usr/bin/*.py; do
+      ln -s "$(basename $f)" "$PKG/usr/bin/$(basename $f .py)"
+  done
 }
 
-
-
-# NuTyX Pkgfile (http://nutyx.org)

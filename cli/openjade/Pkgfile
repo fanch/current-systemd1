@@ -1,6 +1,6 @@
-# Description: James Clark's implementation of Document Style Semantics and Specification Language
+# Description: James Clark's implementation of Document Style Semantics and Specification Language.
 # URL: http://openjade.sourceforge.net/ 
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: opensp
 
 name=openjade
@@ -45,5 +45,3 @@ build(){
 }
 
 
-
-# NuTyX Pkgfile (http://nutyx.org)

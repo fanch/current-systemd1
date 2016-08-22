@@ -1,13 +1,13 @@
-# Description: A portable sound library
+# Description: A portable sound library.
 # URL: http://mikmod.raphnet.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=libmikmod
-version=3.3.7
+version=3.3.8
 release=1
 
-source=( http://downloads.sourceforge.net/mikmod/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/mikmod/$name-$version.tar.gz)
 
 
 build() {

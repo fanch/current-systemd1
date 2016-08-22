@@ -1,19 +1,18 @@
 # Description: Python2 wrapper for SQLite.
-# URL: URL: https://github.com/rogerbinns/apsw
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: python sqlite 
+# URL: https://github.com/rogerbinns/apsw
+# Packager: fanch dot nutyx at org
+# Depends on: python python3 sqlite 
 
 name=python-apsw
-version=3.8.11.1
+version=3.12.2
 release=1
 
-source=(
-https://github.com/rogerbinns/apsw/archive/$version-r1.tar.gz)
+source=(https://github.com/rogerbinns/apsw/archive/$version-r1.tar.gz)
 
 build() {
     cd apsw-$version-r1
     python2 setup.py install --prefix=/usr --root=$PKG
+    python3 setup.py install --prefix=/usr --root=$PKG
 }
 
 

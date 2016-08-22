@@ -1,6 +1,6 @@
 # Description: Utilities and scripts for suspend and hibernate power management
 # URL: http://pm-utils.freedesktop.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: pm-quirks 
 
 

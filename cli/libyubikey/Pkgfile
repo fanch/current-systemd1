@@ -1,7 +1,7 @@
 # Description: bibliotheque C Yubico
 # URL: http://www.yubico.com/
-# Packager: tnut at nutyx dot org
-# Depends on: libusb asciidoc
+# Packager: fanch at nutyx dot org
+# Depends on: libusb asciidoc xmlto
 
 name=libyubikey
 version=1.13
@@ -9,8 +9,7 @@ release=1
 
 source=(https://github.com/Yubico/yubico-c/archive/libyubikey-$version.tar.gz
 	libyubikey.70-yubikey.rules)
-build ()
-{
+build () {
 cd yubico-c-libyubikey-$version
 autoreconf --install
 ./configure --prefix=/usr

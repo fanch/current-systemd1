@@ -1,12 +1,11 @@
-# Description: Database independent interface for Perl
+# Description: Database independent interface for Perl.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl 
-run=( perl )
-name=perl-dbi
-version=1.634
-release=1
+# Packager: fanch at nutyx dot org
+# Depends on: perl
 
+name=perl-dbi
+version=1.636
+release=1
 source=(http://www.cpan.org/authors/id/T/TI/TIMB/DBI-$version.tar.gz)
 
 build() {

@@ -1,6 +1,6 @@
-# Description: GNU Compact Disc Input and Control Library
+# Description: GNU Compact Disc Input and Control Library.
 # URL: http://www.gnu.org/software/libcdio/
-# Packager: pierre at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libcdio
 
 name=libcdio-paranoia

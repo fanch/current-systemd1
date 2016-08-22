@@ -1,6 +1,6 @@
-# Description : A free C++ class library of cryptographic schemes
+# Description : A free C++ class library of cryptographic schemes.
 # URL : http://www.cryptopp.com/
-# Packager : pierre at nutyx dot org
+# Packager : fanch at nutyx dot org
 # Depends on : unzip
 
 name=crypto++

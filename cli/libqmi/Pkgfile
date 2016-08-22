@@ -1,13 +1,13 @@
 # Description: GLib-based library for talking to WWAN modems and devices (QMI) protocol.
 # URL: http://www.freedesktop.org/software/libqmi/
-# Packager: pierre at nutyx dot org
-# Depends on: glib 
+# Packager: fanch at nutyx dot org
+# Depends on: glib libmbim
 
 name=libqmi
-version=1.14.0
+version=1.16.0
 release=1
 
-source=( http://www.freedesktop.org/software/libqmi/libqmi-$version.tar.xz)
+source=(http://www.freedesktop.org/software/libqmi/libqmi-$version.tar.xz)
 
 build() {
 cd libqmi-$version

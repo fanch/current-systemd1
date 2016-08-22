@@ -1,6 +1,6 @@
-# Description: Library for reading, writing, and manipulating ID3v1 and ID3v2 tags
+# Description: Library for reading, writing, and manipulating ID3v1 and ID3v2 tags.
 # URL: http://id3lib.sourceforge.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=id3lib

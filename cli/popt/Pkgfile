@@ -1,19 +1,17 @@
-# Description: The popt libraries which are used by some programs to parse command-line options.
+# Description: A commandline option parser.
 # URL: http://freshmeat.net/projects/popt/
-# Maintainer: - n3npq <http://freecode.com/users/n3npq>
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 PKGMK_GROUPS=(devel man doc)
 
 name=popt
 version=1.16
 release=1
-
-source=(http://rpm5.org/files/popt/popt-1.16.tar.gz)
+source=(ftp://anduin.linuxfromscratch.org/BLFS/$name/$name-$version.tar.gz)
 
 build() { 	
-cd  popt-$version
-./configure --prefix=/usr
+cd  $name-$version
+./configure --prefix=/usr --disable-static 
 make
 make DESTDIR=$PKG install
 }

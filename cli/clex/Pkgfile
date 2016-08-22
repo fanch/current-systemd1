@@ -1,7 +1,8 @@
-# Description: clex (light file manager)
+# Description: clex (light file manager).
 # URL: http://www.clex.sk/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on:
+
 name=clex
 version=4.6.patch6
 release=1

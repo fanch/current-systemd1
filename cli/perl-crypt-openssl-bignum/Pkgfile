@@ -1,8 +1,8 @@
-# Description: OpenSSL's multiprecision integer arithmetic
+# Description: OpenSSL's multiprecision integer arithmetic.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl openssl 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: openssl perl
+
 name=perl-crypt-openssl-bignum
 version=0.06
 release=1

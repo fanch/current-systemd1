@@ -1,13 +1,13 @@
-# Description: Lua module for processing options similar to getopt_long
+# Description: Lua module for processing options similar to getopt_long.
 # URL: http://luaforge.net/projects/alt-getopt/
-# Packager: alienus at nutyx dot org, tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: lua bmake
+
 name=lua-alt-getopt
 version=0.7.0
 release=1
 
-source=(
-http://mova.org/~cheusov/pub/lua_alt_getopt/lua-alt-getopt-$version.tar.gz)
+source=(http://mova.org/~cheusov/pub/lua_alt_getopt/lua-alt-getopt-$version.tar.gz)
 
 build(){
     cd $name-$version

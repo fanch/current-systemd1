@@ -1,12 +1,13 @@
 # Description: Library used for providing an extensible input/output abstraction layer for structured file formats.
 # URL: http://www.gnome.org/
-# Packager: pierre at nutyx dot org
-# Depends on: glib intltool libxml2 gobject-introspection 
+# Packager: fanch at nutyx dot org
+# Depends on: glib  gobject-introspection intltool libxml2 
+
 name=libgsf
-version=1.14.36
+version=1.14.39
 release=1
 
-source=( http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.xz)
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.xz)
 
 build() {
 cd $name-$version

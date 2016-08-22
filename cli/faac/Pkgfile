@@ -1,6 +1,6 @@
-# Description: Encoder MPEG-4 de AudioCoding.com
+# Description: Encoder MPEG-4 de AudioCoding.com.
 # URL: http://www.audiocoding.com
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libmp4v2
 
 name=faac

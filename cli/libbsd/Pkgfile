@@ -1,10 +1,10 @@
-# Description: librairy bsd 
+# Description: Useful functions commonly found on BSD systems.
 # URL: http://libbsd.freedesktop.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=libbsd
-version=0.7.0
+version=0.8.3
 release=1
 
 source=(http://libbsd.freedesktop.org/releases/$name-$version.tar.xz)

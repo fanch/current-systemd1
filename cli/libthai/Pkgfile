@@ -1,6 +1,6 @@
-# Description: Thai language support routines
+# Description: Thai language support routines.
 # URL: http://linux.thai.net/projects/libthai
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libdatrie 
 
 name=libthai

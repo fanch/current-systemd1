@@ -1,15 +1,15 @@
 # Description: Easily download, build, install, upgrade, and uninstall Python packages
 # URL: https://bitbucket.org/pypa/setuptools
-# Packager: alienus at nutyx dot org
-# Depends on: python
+# Packager: fanch at nutyx dot org
+# Depends on: python python3
 
 name=python-setuptools
-version=20.3.1
+version=17.1.1
 release=1
 source=(https://pypi.python.org/packages/source/s/setuptools/setuptools-$version.tar.gz)
         
 build() {
     cd setuptools-$version
     python2 setup.py build install --root=$PKG
-    rm $PKG/usr/bin/easy_install
+    python3 setup.py build install --root=$PKG
 }

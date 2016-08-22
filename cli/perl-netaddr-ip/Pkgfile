@@ -1,10 +1,10 @@
-# Description: Perl module to manage IP addresses and subnets
+# Description: Perl module to manage IP addresses and subnets.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: perl 
-run=( perl )
+
 name=perl-netaddr-ip
-version=4.078
+version=4.079
 release=1
 
 source=(http://search.cpan.org/CPAN/authors/id/M/MI/MIKER/NetAddr-IP-$version.tar.gz)

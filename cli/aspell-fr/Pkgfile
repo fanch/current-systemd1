@@ -1,10 +1,11 @@
-# Description: French dictionaries for Aspell
+# Description: French dictionaries for Aspell.
 # URL: http://aspell.net
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: aspell 
-_version=0.50-3
+
 
 name=aspell-fr
+_version=0.50-3
 version=0.50.3
 release=1
 

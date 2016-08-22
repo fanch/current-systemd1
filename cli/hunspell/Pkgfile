@@ -1,6 +1,6 @@
-# Description: Spell checker and morphological analyzer library and program 
+# Description: Spell checker and morphological analyzer library and program.
 # URL: http://hunspell.sourceforge.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=hunspell

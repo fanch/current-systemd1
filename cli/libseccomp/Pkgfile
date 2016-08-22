@@ -1,7 +1,8 @@
-# Description: Enhanced seccomp library
+# Description: Enhanced seccomp library.
 # URL: http://sourceforge.net/projects/libseccomp/
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=libseccomp
 version=2.2.3
 release=1

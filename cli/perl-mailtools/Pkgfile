@@ -1,10 +1,10 @@
-# Description: Various e-mail related modules
+# Description: Various e-mail related modules.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl perl-timedate 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl-timedate perl 
+
 name=perl-mailtools
-version=2.14
+version=2.18
 release=1
 
 source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV/MailTools-$version.tar.gz)

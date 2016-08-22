@@ -1,9 +1,10 @@
-# Description: Text and graphics mode WWW browser. It includes support for rendering tables and frames
+# Description: Text and graphics mode WWW browser. It includes support for rendering tables and frames.
 # URL: http://links.twibright.com/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: gpm libpng libtiff libjpeg-turbo 
+
 name=links
-version=2.12
+version=2.13
 release=1
 
 source=(http://links.twibright.com/download/links-$version.tar.bz2)

@@ -1,6 +1,6 @@
-# Description: Compact Disc Digital Audio extraction tool
+# Description: Compact Disc Digital Audio extraction tool.
 # URL: http://xiph.org/paranoia/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=cdparanoia

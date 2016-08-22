@@ -1,6 +1,6 @@
-# Description: Providing application developers a predictable API with which to access Data Sources
+# Description: Providing application developers a predictable API with which to access Data Sources.
 # URL: http://www.unixodbc.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=unixodbc
 version=2.3.4
@@ -10,7 +10,7 @@ source=(ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-$version.tar.gz)
 build() { 
 cd unixODBC-$version
 ./configure --prefix=/usr --sysconfdir=/etc/unixODBC \
---enable-gui=no
+--enable-drivers --enable-drivers-conf
 make
 make DESTDIR=$PKG install
 find doc -name "Makefile*" -delete

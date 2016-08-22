@@ -1,7 +1,8 @@
-# Description: Used by programs wanting to read and write of files Multiple-image Network Graphics (MNG)
+# Description: Used by programs wanting to read and write of files Multiple-image Network Graphics (MNG).
 # URL: http://sourceforge.net/projects/libmng/
-# Packager: tnut at nutyx dot org
-# Depends on: libjpeg-turbo lcms 
+# Packager: fanch at nutyx dot org
+# Depends on: libjpeg-turbo lcms2 
+
 name=libmng
 version=2.0.3
 release=1

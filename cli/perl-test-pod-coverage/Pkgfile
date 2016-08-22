@@ -1,9 +1,7 @@
-# Description: CPAN Test::Pod::Coverage module
-# URL: URL: http://search.cpan.org/dist/Test-Pod-Coverage/
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: perl-pod-coverage 
-run=( perl )
+# Description: CPAN Test::Pod::Coverage module.
+# URL: http://search.cpan.org/dist/Test-Pod-Coverage/
+# Packager: fanch at nutyx dot org
+# Depends on: perl-pod-coverage perl
 
 name=perl-test-pod-coverage
 version=1.10

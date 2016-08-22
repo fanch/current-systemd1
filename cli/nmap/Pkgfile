@@ -1,0 +1,20 @@
+# Description: Utility for network discovery and security auditing.
+# URL: http://insecure.org/nmap/
+# Packager: fanch at nutyx dot org
+# Depends on: liblinear libpcap  pcre
+
+name=nmap
+version=7.12
+release=1
+
+source=(http://nmap.org/dist/$name-$version.tar.bz2)
+
+build() {
+cd $name-$version
+./configure --prefix=/usr \
+--with-liblua=included
+make || make -j1
+sed -i 's/lib./lib/' zenmap/test/run_tests.py
+make DESTDIR=$PKG install
+rm -rf $PKG/usr/share/info/dir
+}

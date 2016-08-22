@@ -1,6 +1,6 @@
-# Description: An event notification library
+# Description: An event notification library.
 # URL: http://www.monkey.org/~provos/libevent/ 
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=libevent
@@ -10,7 +10,8 @@ release=1
 source=(http://downloads.sourceforge.net/levent/$name-$version-stable.tar.gz)
 build() {
 cd $name-$version-stable
-./configure --prefix=/usr --disable-static
+./configure --prefix=/usr \
+            --disable-static
 make
 make DESTDIR=$PKG install
 }

@@ -1,10 +1,10 @@
-# Description: Mozilla's CA cert bundle in PEM format
+# Description: Mozilla's CA cert bundle in PEM format.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on:  perl
+
 name=perl-mozilla-ca
-version=20150826
+version=20160104
 release=1
 
 source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABH/Mozilla-CA-$version.tar.gz)

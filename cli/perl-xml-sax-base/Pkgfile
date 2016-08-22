@@ -1,9 +1,8 @@
-# Description: Base class SAX Drivers and Filters
+# Description: Base class SAX Drivers and Filters.
 # URL: URL: http://search.cpan.org/dist/XML-SAX-Base
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl 
+
 name=perl-xml-sax-base
 version=1.08
 release=1
@@ -26,4 +25,3 @@ build() {
 
 
 
-# NuTyX Pkgfile (http://nutyx.org)

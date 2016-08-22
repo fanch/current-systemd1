@@ -1,28 +1,22 @@
-# Description: DVD+-RW/R tools
+# Description: DVD+-RW/R tools.
 # URL: http://fy.chalmers.se/~appro/linux/DVD+RW/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
 
 name=dvd+rw-tools
 version=7.1
 release=1
 
-source=( http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-$version.tar.gz \
-	 http://downloads.nutyx.org/files/patchs/$name/transport.patch)
+source=(http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	patch -Np1 -i ../transport.patch
+	sed -i '/stdlib/a #include <limits.h>' transport.hxx 
+	sed -i 's#mkisofs"#xorrisofs"#' growisofs.c 
+	sed -i 's#mkisofs#xorrisofs#;s#MKISOFS#XORRISOFS#' growisofs.1 
+	make all rpl8 btcflash
 	make
-	mkdir -p $PKG/usr/bin $PKG/usr/share/man/man1
-        for exec in \
-	dvd+rw-booktype \
-	dvd+rw-format \
-	dvd+rw-mediainfo \
-	dvd-ram-control \
-	growisofs
-	do
-		install -m 755 $exec $PKG/usr/bin/
-	done
-	install -m 644 growisofs.1 $PKG/usr/share/man/man1/
+	make prefix=$PKG/usr install 
+	install -v -m644 -D index.html \
+    	$PKG/usr/share/doc/dvd+rw-tools-7.1/index.html
 }

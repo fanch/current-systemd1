@@ -4,16 +4,16 @@
 # Depends on: pcre apr-util sqlite expat 
 
 name=apache
-version=2.4.20
+version=2.4.23
 release=1
 
 source=(http://archive.apache.org/dist/httpd/httpd-$version.tar.bz2
 	 http://www.linuxfromscratch.org/patches/blfs/svn/httpd-$version-blfs_layout-1.patch)
 build(){
+ source /etc/blfs-systemd-units
 
-source /etc/blfs-bootscripts
-wget http://www.linuxfromscratch.org/blfs/downloads/svn/$scripts-$scriptsversion.tar.bz2
-
+    wget http://www.linuxfromscratch.org/blfs/downloads/systemd/$scripts-$scriptsversion.tar.bz2
+    tar xvf $scripts-$scriptsversion.tar.bz2
 cd httpd-$version
 
 patch -Np1 -i ../httpd-$version-blfs_layout-1.patch

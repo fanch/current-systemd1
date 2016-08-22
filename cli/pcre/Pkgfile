@@ -1,9 +1,9 @@
 # Description: Perl Compatible Regular Expression libraries.
 # URL: http://www.pcre.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=pcre
-version=8.38
+version=8.39
 release=1
 
 source=( ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$name-$version.tar.bz2 )

@@ -1,9 +1,10 @@
-# Description: Node (Evented I/O for V8 JavaScript)
+# Description: Node (Evented I/O for V8 JavaScript).
 # URL: http://nodejs.org/
-# Packager: alienus at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: python 
+
 name=node
-version=4.2.1
+version=4.4.7
 release=1
 
 source=(http://nodejs.org/dist/v$version/node-v$version.tar.gz
@@ -13,7 +14,6 @@ build() {
         ./configure --prefix=/usr \
                     --shared-openssl \
                     --shared-zlib
-
         make
         make DESTDIR=$PKG install
 

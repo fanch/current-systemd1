@@ -1,10 +1,11 @@
-# Description: perl module
+# Description: perl module.
 # URL: http://search.cpan.org/dist/ExtUtils-Depends/
-# Packager: pierre at nutyx dot org
-# Depends on: 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl
+ 
+
 name=perl-extutils-depends
-version=0.404
+version=0.405
 release=1
 
 source=(http://www.cpan.org/authors/id/X/XA/XAOC/ExtUtils-Depends-$version.tar.gz)

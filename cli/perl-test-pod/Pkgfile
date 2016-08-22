@@ -1,9 +1,8 @@
-# Description: Check for POD errors in files
-# URL: URL: http://search.cpan.org/dist/Test-Pod/
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: 
-run=( perl )
+# Description: Check for POD errors in files.
+# URL: http://search.cpan.org/dist/Test-Pod/
+# Packager: fanch at nutyx dot org
+# Depends on: perl
+
 name=perl-test-pod
 version=1.51
 release=1
@@ -23,5 +22,3 @@ build() {
 }
 
 
-
-# NuTyX Pkgfile (http://nutyx.org)

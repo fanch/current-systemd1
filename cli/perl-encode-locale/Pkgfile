@@ -1,8 +1,8 @@
-# Description: Determine the locale encoding
+# Description: Determine the locale encoding.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: perl 
-run=( perl )
+
 name=perl-encode-locale
 version=1.05
 release=1

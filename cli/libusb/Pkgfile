@@ -1,19 +1,17 @@
-# Description: The libusb package contains a library used by some applications for USB device access.
+# Description: Library that provides generic access to USB devices.
 # URL: http://libusb.wiki.sourceforge.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 name=libusb
 version=1.0.20
 release=1
 
-source=( http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 
 build() {
   cd $name-$version
-  ./configure --prefix=/usr\
-          --disable-build-docs\
-          --mandir=/usr/share/man\
-          --infodir=/usr/share/info
-  make -j1
-  make DESTDIR=$PKG install
+  	./configure --prefix=/usr\
+          	    --disable-static
+         make -j1
+ 	 make DESTDIR=$PKG install
 }

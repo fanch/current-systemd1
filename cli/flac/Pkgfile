@@ -1,6 +1,6 @@
-# Description: Free Lossless Audio Codec
+# Description: Free Lossless Audio Codec.
 # URL: http://flac.sourceforge.net/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libogg 
 
 name=flac
@@ -12,8 +12,6 @@ source=(ftp://downloads.xiph.org/pub/xiph/releases/$name/$name-$version.tar.xz)
 build() {
 cd $name-$version
 ./configure --prefix=/usr \
---mandir=/usr/share/man \
---infodir=/usr/share/info \
 --disable-thorough-tests
 make
 make DESTDIR=$PKG install

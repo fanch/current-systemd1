@@ -1,8 +1,8 @@
-# Description: Choose a variant to serve
+# Description: Choose a variant to serve.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl perl-http-message 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on: perl-http-message perl 
+
 name=perl-http-negotiate
 version=6.01
 release=1

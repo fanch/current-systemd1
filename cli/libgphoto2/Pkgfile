@@ -1,18 +1,37 @@
 # Description: Core library of gphoto2, designed to allow access to digital camera by external programs.
 # URL: http://www.gphoto.org/proj/libgphoto2/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: libjpeg-turbo libexif libusb-compat 
 
 name=libgphoto2
-version=2.5.8
-release=1
+version=2.5.10
+release=1  
 
-source=(http://downloads.sourceforge.net/gphoto/$name-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/gphoto/$name-$version.tar.bz2 jpeg.patch)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr --sysconfdir=/etc
+	patch -Np1 -i ../jpeg.patch
+	./configure --prefix=/usr --disable-rpath
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/doc
+	# Remove unused udev helper
+  	rm -rf ${PKG}/usr/lib/udev
+
+  	install -m755 -d ${PKG}/usr/lib/udev/hwdb.d
+  	install -m755 -d ${PKG}/usr/lib/udev/rules.d
+
+  	LD_LIBRARY_PATH=${PKG}/usr/lib${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH" \
+  	CAMLIBS=${PKG}/usr/lib/libgphoto2/${pkgver}" \
+      	${PKG}/usr/lib/libgphoto2/print-camera-list" hwdb > \
+      	${PKG}/usr/lib/udev/hwdb.d/20-gphoto.hwdb
+
+  	LD_LIBRARY_PATH=${PKG}/usr/lib${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH \
+  	CAMLIBS="${PKG}/usr/lib/libgphoto2/${pkgver} \
+      	${PKG}/usr/lib/libgphoto2/print-camera-list udev-rules version 201 > \
+      	${PKG}/usr/lib/udev/rules.d/40-gphoto.rules
+
+  	# Remove recursive symlink
+  	rm -fv ${PKG}/usr/include/gphoto2/gphoto2
 }
+

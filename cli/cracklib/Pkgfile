@@ -1,6 +1,6 @@
-# Description: Library to enforce passwords by comparing user selected passwords to words lists
+# Description: Library to enforce passwords by comparing user selected passwords to words lists.
 # URL: http://sourceforge.net/projects/cracklib/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org 
 
 name=cracklib
 version=2.9.6

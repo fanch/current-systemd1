@@ -1,8 +1,7 @@
-# Description: HTTP style messages
+# Description: HTTP style messages.
 # URL: http://search.cpan.org/
-# Packager: pierre at nutyx dot org
-# Depends on: perl perl-encode-locale perl-html-parser perl-http-date perl-lwp-mediatypes perl-uri 
-run=( perl )
+# Packager: fanch at nutyx dot org
+# Depends on:  perl-encode-locale perl-html-parser perl-http-date perl-lwp-mediatypes perl-uri perl
 
 name=perl-http-message
 version=6.11

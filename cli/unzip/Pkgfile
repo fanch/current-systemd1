@@ -1,15 +1,12 @@
-# Description: Unpacks .zip archives such as those made by PKZIP
+# Description: Unpacks .zip archives such as those made by PKZIP.
 # URL: http://www.info-zip.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
-# Depends on:
 
 name=unzip
 version=6.0
 release=1
-
 source=(http://downloads.sourceforge.net/infozip/unzip60.tar.gz)
-
 
 build() {
 	cd $name${version/./}

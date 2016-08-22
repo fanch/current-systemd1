@@ -1,9 +1,10 @@
-# Description: Portable version of the NetBSD 'make' build tool
+# Description: Portable version of the NetBSD 'make' build tool.
 # URL: http://www.crufty.net/help/sjg/bmake.html
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: 
+
 name=bmake
-version=20150910
+version=20160606
 release=1
 
 source=(http://www.crufty.net/ftp/pub/sjg/bmake-$version.tar.gz)

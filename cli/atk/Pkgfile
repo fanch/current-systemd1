@@ -1,6 +1,6 @@
-# Description: A library providing a set of interfaces for accessibility
+# Description: A library providing a set of interfaces for accessibility.
 # URL: http://www.gtk.org/
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: glib pcre gobject-introspection 
 
 name=atk

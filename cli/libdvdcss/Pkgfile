@@ -1,6 +1,6 @@
-# Description: Portable abstraction library for DVD decryption
+# Description: Portable abstraction library for DVD decryption.
 # URL: http://www.videolan.org
-# Packager: pierre at nutyx dot org
+# Packager: fanch at nutyx dot org
 # Depends on: doxygen 
 
 name=libdvdcss

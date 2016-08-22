@@ -1,19 +1,17 @@
 # Description: A pythonic, object-oriented web development framework.
-# URL: URL: http://www.cherrypy.org/
-# NuTyX package info file (http://nutyx.org)
-# Packager: # NuTyX package info file (http://nutyx.org)
-# Depends on: python 
+# URL: http://www.cherrypy.org/
+# Packager: fanch at nutyx dot org
+# Depends on: python python3
 
 name=python-cherrypy
 version=3.8.0
 release=1
-
-source=(
-https://pypi.python.org/packages/source/C/CherryPy/CherryPy-$version.tar.gz)
+source=(https://pypi.python.org/packages/source/C/CherryPy/CherryPy-$version.tar.gz)
 
 build() {
     cd CherryPy-$version
     python2 setup.py install --prefix=/usr --root=$PKG
+    python3 setup.py install --prefix=/usr --root=$PKG
 }
 
 

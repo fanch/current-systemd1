@@ -1,23 +1,22 @@
 # Description: Open Source H265/HEVC video encoder.
 # URL: https://bitbucket.org/multicoreware/x265/wiki/Home
-# Packager: Chris Farrell, timcowchip at gmail dot com
-# Maintainer: Chris Farrell, timcowchip at gmail dot com
+# Packager: fanch dot nutyx at org
 # Depends on: yasm cmake
 
 name=x265
-version=1.9
+version=2.0
 release=1
 source=( https://bitbucket.org/multicoreware/x265/downloads/${name}_${version}.tar.gz
- http://www.linuxfromscratch.org/patches/blfs/svn/${name}-${version}-enable_static-1.patch)
+http://www.linuxfromscratch.org/patches/blfs/svn/x265_2.0-enable_static-1.patch)
 
 build() {
 	cd ${name}_${version}
-	patch -Np1 -i ../${name}-${version}-enable_static-1.patch
+	patch -Np1 -i ../x265_2.0-enable_static-1.patch
 	mkdir bld 
 	cd bld
 	cmake  -DCMAKE_INSTALL_PREFIX=/usr \
-      -DENABLE_STATIC=OFF  \
-      ../source      
+        -DENABLE_STATIC=OFF  \
+        ../source      
 	make
 	make DESTDIR=$PKG install
 }

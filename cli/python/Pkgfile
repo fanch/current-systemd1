@@ -1,6 +1,6 @@
-# Description: Next generation of the python high-level scripting language
-# URL: URL: http://www.python.org
-# Packager: alienus at nutyx dot org
+# Description: Next generation of the python high-level scripting language.
+# URL: http://www.python.org
+# Packager: fanch at nutyx dot org
 # Depends on: libffi sqlite 
 PKGMK_GROUPS=(devel man doc)
 
