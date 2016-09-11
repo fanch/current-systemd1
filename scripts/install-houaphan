@@ -364,7 +364,7 @@ generate_blfs_systemd_units() {
 [ -f ${FOLDER}/etc/${FOLDER}/etc/blfs-systemd-units ] && return
 [ ! -d ${FOLDER}/etc ] && mkdir -pv ${FOLDER}/etc
 echo "scripts=blfs-systemd-units
-scriptsversion=" > ${FOLDER}/etc/blfs-systemd-units
+scriptsversion=20160602" > ${FOLDER}/etc/blfs-systemd-units
 }
 generate_etc_bashrc() {
 local FILE
