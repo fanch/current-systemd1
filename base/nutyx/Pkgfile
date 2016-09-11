@@ -1,7 +1,7 @@
 # Description: Base system of NuTyX, contains all folders and startup scripts.
 # URL: https://github.com/nutyx
 # Maintainer: tnut at nutyx dot org
-# Packager: tnut at nutyx dot org
+# Packager: fanch at nutyx dot org
 
 PKGMK_GROUPS=(man)
 PKGMK_IGNORE_RUNTIMEDEPS=yes
@@ -29,6 +29,7 @@ for file in nu flushmem
 do
 	install -m755 $file $PKG/usr/bin/$file
 done
+
 install --directory --mode=0755 --owner=root --group=root $PKG/etc/profile.d
 
 mkdir -pv $PKG/usr/ports/{base,extra,personnel}
@@ -61,23 +62,6 @@ cat > $PKG/etc/shells << "EOF"
 
 # End /etc/shells
 EOF
-
-
-cat > $PKG/etc/profile.d/xorg.sh << "EOF"
-XORG_PREFIX="/usr"
-XORG_CONFIG="--prefix=$XORG_PREFIX \
-             --sysconfdir=/etc \
-             --mandir=$XORG_PREFIX/share/man \
-             --localstatedir=/var"
-export XORG_PREFIX XORG_CONFIG
-EOF
-
-# Set up KDE
-cat > $PKG/etc/profile.d/kde.sh << "EOF"
-export KDE_PREFIX=/usr
-EOF
-
-
 
 cat > $PKG/etc/sysconfig/console << "EOF"
 FONT="Lat2-Terminus16"
@@ -113,6 +97,31 @@ cat > $PKG/etc/hosts << "EOF"
 # End /etc/hosts
 EOF
 
+cat > $PKG/etc/systemd/network/10-eno1-dhcp.network << "EOF"
+[Match]
+Name=eno1
+
+[Network]
+DHCP=ipv4
+
+[DHCP]
+UseDomains=true
+EOF
+
+statique
+
+cat > $PKG/etc/systemd/network/10-eno1-static.network << "EOF"
+[Match]
+Name=eno1
+
+[Network]
+Address=192.168.0.2/24
+Gateway=192.168.0.1
+DNS=192.168.0.1
+Domains=
+EOF
+
+
 cat > $PKG/usr/bin/which << "EOF"
 #!/bin/bash
 type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}
@@ -131,6 +140,18 @@ cat > $PKG/etc/blfs-systemd-units << "EOF"
 scripts=blfs-systemd-units
 EOF
 echo "scriptsversion=$scriptsversion" >> $PKG/etc/blfs-systemd-units
+
+mkdir -p $PKG/var/lib/pkg/DB/eudev
+echo "etc/
+etc/udev/
+etc/udev/hwdb.bin" > $PKG/var/lib/pkg/DB/eudev/files
+echo "Neudev
+DEudev
+V3.2
+r1
+B1466968899
+ax86_64
+cbase" > $PKG/var/lib/pkg/DB/eudev/META
 
 
 # X11 bug
