@@ -4,7 +4,7 @@
 # Packagers: tnut at nutyx dot org
 
 name=e2fsprogs
-version=1.43.1
+version=1.43.3
 release=1
 
 source=(http://prdownloads.sourceforge.net/$name/$name-$version.tar.gz)
