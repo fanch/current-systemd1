@@ -16,7 +16,7 @@ build () {
 mkdir $PKG/{dev,proc,sys}
 mknod -m 600 $PKG/dev/console c 5 1
 mknod -m 666 $PKG/dev/null c 1 3
-mkdir -pv $PKG/{bin,boot,etc/{opt,sysconfig},home,lib/firmware,mnt,opt}
+mkdir -pv $PKG/{bin,boot,etc/{opt,sysconfig,systemd/network},home,lib/firmware,mnt,opt}
 mkdir -pv $PKG/{media/{floppy,cdrom},sbin,srv,var}
 install -dv -m 0750 $PKG/root
 install -dv -m 1777 $PKG/tmp $PKG/var/tmp
@@ -108,7 +108,6 @@ DHCP=ipv4
 UseDomains=true
 EOF
 
-statique
 
 cat > $PKG/etc/systemd/network/10-eno1-static.network << "EOF"
 [Match]
@@ -186,3 +185,4 @@ ln -s ../etc/pkgadd.conf
 ln -s ../etc/pkgmk.conf
 cd -
 }
+
