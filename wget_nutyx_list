@@ -1,5 +1,7 @@
-https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.xz
-https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.7.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.tar.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.8.3.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.tar.xz
+https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.4.24.xz
 http://downloads.nutyx.org/files/cards-2.1.1.tar.gz
 http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2
 ftp://openssl.org/source/openssl-1.0.2h.tar.gz
