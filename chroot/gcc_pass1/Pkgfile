@@ -8,7 +8,7 @@ ftp://gcc.gnu.org/pub/gcc/releases/gcc-$version/gcc-$version.tar.bz2)
 build()
 {
 cd  gcc-$version
-mv ../mpfr-3.1.4 mpfr
+mv ../mpfr-3.1.5 mpfr
 mv ../gmp-6.1.1 gmp
 mv ../mpc-1.0.3 mpc
 
