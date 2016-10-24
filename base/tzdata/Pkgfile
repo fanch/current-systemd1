@@ -3,7 +3,7 @@
 # Packager: tnut at nutyx dot org
 
 name=tzdata
-version=2016g
+version=2016h
 release=1
 
 source=(http://www.iana.org/time-zones/repository/releases/$name$version.tar.gz)
