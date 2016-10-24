@@ -8,7 +8,7 @@
 name=systemd
 version=231
 release=1
-source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz systemd-user)
+source=(http://anduin.linuxfromscratch.org/sources/other/systemd/$name-$version.tar.xz  http://www.linuxfromscratch.org/patches/lfs/development/systemd-231-security_fix-1.patch systemd-user)
 
 PKGMK_GROUPS=(devel man doc)
 
@@ -22,6 +22,7 @@ sed -e 's@DRI and frame buffer@DRI@'                  \
 sed -e 's@test/udev-test.pl @@'  \
     -e 's@test-copy$(EXEEXT) @@' \
     -i Makefile.in
+patch -Np1 -i ../systemd-231-security_fix-1.patch
 autoreconf -fi    
 cat > config.cache << "EOF"
 KILL=/bin/kill
