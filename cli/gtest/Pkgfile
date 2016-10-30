@@ -7,7 +7,7 @@ name=gtest
 version=1.7.0
 release=1
 
-source=(http://googletest.googlecode.com/files/$name-$version.zip)
+source=(http://pkgs.fedoraproject.org/repo/pkgs/$name/$name-$version.zip/2d6ec8ccdf5c46b05ba54a9fd1d130d7/$name-$version.zip)
 
 build() {
   cd $name-$version
