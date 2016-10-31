@@ -4,7 +4,7 @@
 # Depends on: pam
 
 name=sudo
-version=1.8.17p1
+version=1.8.18p1
 release=1
 
 source=(http://www.sudo.ws/sudo/dist/$name-$version.tar.gz)
@@ -41,6 +41,7 @@ session   include     system-session
 
 # End /etc/pam.d/sudo
 EOF
+
 chmod 644 $PKG/etc/pam.d/sudo
 echo "%wheel ALL=(ALL) ALL" >> $PKG/etc/sudoers
 }
