@@ -3,7 +3,7 @@
 # Packager: fanch at nutyx dot org 
 
 name=nettle
-version=3.2
+version=3.3
 release=1
 
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
