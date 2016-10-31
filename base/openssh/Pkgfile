@@ -3,7 +3,7 @@
 # Packagers: fanch at nutyx dot org - systemd
 
 name=openssh
-version=7.2p2
+version=7.3p1
 release=1
 
 source=(ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/$name-$version.tar.gz)
