@@ -4,7 +4,7 @@
 # Depends on: curl libgpg-error libgcrypt libassuan libksba libusb-compat npth openldap pinentry    
 
 name=gnupg
-version=2.1.13
+version=2.1.15
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-$version.tar.bz2)
 
