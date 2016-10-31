@@ -6,7 +6,7 @@
 ######################################
 
 user_groups=""
-default_groups=(users disk network floppy fuse video lp tty audio cdrom halusers scanner adm wheel)
+default_groups=(users disk floppy fuse video lp tty audio cdrom halusers scanner adm wheel)
 
 # Avoid spaces troubles :)
 OLD_IFS=$IFS
@@ -129,11 +129,11 @@ Création de $name.
 if [ -d /home/${name} ]; then
 	chown -R ${name}:${name} /home/${name}
 fi
-# echo "/usr/sbin/useradd -c ${description} $user_groups -m ${name}"
+# echo "/sbin/useradd -c ${description} $user_groups -m ${name}"
 if [ -z "$user_groups" ]; then
-    /usr/sbin/useradd -c "${description}" -m "${name}" || exit 1
+    /sbin/useradd -c "${description}" -m "${name}" || exit 1
 else
-    /usr/sbin/useradd -c "${description}" -G "$user_groups" -m "${name}" || exit 1
+    /sbin/useradd -c "${description}" -G "$user_groups" -m "${name}" || exit 1
 fi
 passwd "$name"
 
