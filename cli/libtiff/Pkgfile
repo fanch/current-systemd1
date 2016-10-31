@@ -7,7 +7,7 @@ name=libtiff
 version=4.0.6
 release=1
 
-source=(ftp://ftp.remotesensing.org/libtiff/tiff-$version.tar.gz)
+source=(http://download.osgeo.org/libtiff/tiff-$version.tar.gz)
 
 
 build() {
