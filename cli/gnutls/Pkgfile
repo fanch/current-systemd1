@@ -4,7 +4,7 @@
 # Depends on: guile libtasn1 nettle libidn p11-kit zlib
 
 name=gnutls
-version=3.5.2
+version=3.5.5
 release=1
 
 source=(ftp://ftp.gnutls.org/gcrypt/$name/v${version:0:3}/$name-$version.tar.xz)
