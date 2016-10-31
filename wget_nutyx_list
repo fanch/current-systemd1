@@ -9,7 +9,7 @@ http://curl.haxx.se/download/curl-7.50.3.tar.lzma
 http://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 ftp://atrey.karlin.mff.cuni.cz/pub/linux/pci/pciutils-3.5.1.tar.gz
 http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz
-ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.155.tgz
+ftp://sources.redhat.com/pub/lvm2/releases/LVM2.2.02.164.tgz
 http://ftp.gnu.org/gnu/wget/wget-1.18.tar.xz
 http://rsync.samba.org/ftp/rsync/rsync-3.1.2.tar.gz
 http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20160602.tar.bz2	
