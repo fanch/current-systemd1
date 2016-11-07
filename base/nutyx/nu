@@ -6,7 +6,7 @@
 ######################################
 
 user_groups=""
-default_groups=(users disk floppy fuse video lp tty audio cdrom halusers scanner adm wheel)
+default_groups=(systemd-journal plugdev netdev users disk floppy fuse video lp tty audio cdrom halusers scanner adm wheel)
 
 # Avoid spaces troubles :)
 OLD_IFS=$IFS
